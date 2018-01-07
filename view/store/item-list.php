@@ -1,8 +1,33 @@
-<ul>
 
+
+<div class="featured-items container is-fluid has-text-centered">
+    <?php $i = 0; ?>
     <?php foreach ($items as $item): ?>
-        <li><a href="<?= BASE_URL . "items?id=" . $item["id"] ?>"><?= $item["brand"] ?>: 
-        	<?= $item["name"] ?> (<?= $item["price"] ?>)</a></li>
+        <?php if ($i % 4 == 0): ?>
+        <div class="columns">
+        <?php endif ?>
+            <div class="column is-one-quarter" href="<?= BASE_URL . "items?id=" . $item["id"] ?>">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="http://lorempixel.com/700/700/fashion/" alt="Placeholder image">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content">
+                                <p class="title is-4"><?= $item["brand"] ?>: <?= $item["name"] ?></p>
+                                <p class="subtitle is-6"><?= $item["price"] ?>$</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php if ($i % 4 == 3): ?>
+        </div>
+        <?php endif ?>
+        <?php $i = $i + 1; ?>
     <?php endforeach; ?>
+</div>
 
-</ul>
+
