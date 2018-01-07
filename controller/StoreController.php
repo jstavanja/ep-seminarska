@@ -14,8 +14,10 @@ class StoreController {
         ];
 
         $data = filter_input_array(INPUT_GET, $rules);
-
+        //var_dump($data);
+        
         echo ViewHelper::render("view/store.php", [
+            "title" => "Store :: Home",
             "items" => StoreDB::getFeatured()
         ]);
     }

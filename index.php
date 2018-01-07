@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-
 require_once("controller/StoreController.php");
 
 define("BASE_URL", $_SERVER["SCRIPT_NAME"] . "/");
@@ -29,6 +28,9 @@ $urls = [
     },
     "seller" => function () {
         SellerController::index();
+    },
+    "item" => function () {
+        ItemController::index();
     },
     "" => function () {
         ViewHelper::redirect(BASE_URL . "store");

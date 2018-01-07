@@ -3,7 +3,7 @@
 require_once("model/StoreDB.php");
 require_once("ViewHelper.php");
 
-class AdministratorController {
+class ItemController {
     
     public static function index() {
         $rules = [
@@ -16,6 +16,6 @@ class AdministratorController {
         $data = filter_input_array(INPUT_GET, $rules);
         var_dump($data);
         
-        echo ViewHelper::render("view/administrator.php");
+        echo ViewHelper::render("view/item.php");
     }
 }

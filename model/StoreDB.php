@@ -38,7 +38,9 @@ class StoreDB extends AbstractDB {
     }
     
     public static function getFeatured() {
-        return [];
+        return [
+            ["id"=>3, "brand"=>"ZARA", "name"=>"Tangice", "price"=>19.96]
+        ];
     }
 
 }
