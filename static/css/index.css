@@ -1,0 +1,44 @@
+body, HTML {
+  background-color: #f9f9f9;
+  height: 100%;
+}
+
+* { box-sizing: border-box; }
+
+.fa-user {
+  margin-right: 4px;
+}
+
+.navbar-center {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.navbar.main-navigation {
+  min-height: 4.75rem;
+}
+
+.featured-sales.container {
+  margin-top: 32px;
+}
+
+.featured-items.container {
+  margin-top: 54px;
+}
+
+.carousel {
+  margin-bottom: 25px;
+}
+
+.carousel-cell {
+  width: 50%;
+  height: 400px;
+  margin-right: 10px;
+  border-radius: 5px;
+  counter-increment: carousel-cell;
+}
+
+.carousel-cell img {
+  object-fit: cover;
+}

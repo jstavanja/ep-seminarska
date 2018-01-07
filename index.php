@@ -41,7 +41,7 @@ try {
     if (isset($urls[$path])) {
         $urls[$path]();
     } else {
-        echo "No controller for '$path'";
+        include($path);
     }
 } catch (InvalidArgumentException $e) {
     ViewHelper::error404();

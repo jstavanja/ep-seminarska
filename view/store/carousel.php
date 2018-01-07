@@ -24,5 +24,3 @@
         </div>
       </div>
 </div>
-
-<script src="static/js/store.js" type="text/javascript"></script>
