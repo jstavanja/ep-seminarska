@@ -6,16 +6,17 @@ require_once("ViewHelper.php");
 class LoginController {
     
     public static function index() {
-        $rules = [
-            "id" => [
-                'filter' => FILTER_VALIDATE_INT,
-                'options' => ['min_range' => 1]
-            ]
-        ];
 
-        $data = filter_input_array(INPUT_GET, $rules);
-        var_dump($data);
+        $data = filter_input(INPUT_GET, 'error', FILTER_SANITIZE_URL);
         
-        echo ViewHelper::render("view/login.php");
+        $displayError = false;
+        if ($data == "true") {
+            $displayError = true;
+        }
+        
+        echo ViewHelper::render("view/login.php", [
+            "title" => "Store :: Login",
+            "displayError" => $displayError
+        ]);
     }
 }

@@ -35,10 +35,10 @@
               <a class="navbar-item" href="/documentation/overview/start/">
                 Košarica
               </a>
-              <a class="navbar-item" href="/prijava.html">
+              <a class="navbar-item" href="/index.php/login">
                 Prijava
               </a>
-              <a class="navbar-item" href="/registracija.html">
+              <a class="navbar-item" href="/index.php/registration">
                 Registracija
               </a>
               <div class="navbar-item has-dropdown is-hoverable">

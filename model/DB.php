@@ -2,10 +2,10 @@
 
 class DBInit {
 
-    private static $host = "localhost";
-    private static $user = "root";
+    private static $host = "192.168.64.2";
+    private static $user = "jaka";
     private static $password = "ep";
-    private static $schema = "bookstore";
+    private static $schema = "store";
     private static $instance = null;
 
     private function __construct() {

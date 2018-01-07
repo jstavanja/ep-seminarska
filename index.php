@@ -2,6 +2,8 @@
 
 session_start();
 require_once("controller/StoreController.php");
+require_once("controller/LoginController.php");
+require_once("controller/RegistrationController.php");
 
 define("BASE_URL", $_SERVER["SCRIPT_NAME"] . "/");
 define("IMAGES_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "static/images/");

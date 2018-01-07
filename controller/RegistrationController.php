@@ -14,8 +14,10 @@ class RegistrationController {
         ];
 
         $data = filter_input_array(INPUT_GET, $rules);
-        var_dump($data);
+        //var_dump($data);
         
-        echo ViewHelper::render("view/registration.php");
+        echo ViewHelper::render("view/registration.php", [
+            "title" => "Store :: Register"
+        ]);
     }
 }
