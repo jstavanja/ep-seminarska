@@ -22,6 +22,12 @@ $urls = [
     "registration" => function () {
         RegistrationController::index();
     },
+    "registration/registerUser" => function () {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            RegistrationController::registerUser();
+        }
+        else ViewHelper::error404();
+    },
     "administrator" => function () {
         AdministratorController::index();
     },

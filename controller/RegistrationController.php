@@ -1,23 +1,77 @@
 <?php
 
-require_once("model/StoreDB.php");
+require_once("model/UserDB.php");
 require_once("ViewHelper.php");
 
 class RegistrationController {
     
     public static function index() {
-        $rules = [
-            "id" => [
-                'filter' => FILTER_VALIDATE_INT,
-                'options' => ['min_range' => 1]
-            ]
-        ];
 
-        $data = filter_input_array(INPUT_GET, $rules);
-        //var_dump($data);
+        $missing = filter_input(INPUT_GET, 'missing_parameters', FILTER_SANITIZE_URL);
+
+        $missing_parameters = false;
+        if ($missing == "true") {
+            $missing_parameters = true;
+        }
         
         echo ViewHelper::render("view/registration.php", [
-            "title" => "Store :: Register"
+            "title" => "Store :: Register",
+            "missing_parameters" => $missing_parameters
         ]);
+    }
+
+    public static function registerUser() {
+        $rules = [
+            "email" => [
+                'filter' => FILTER_VALIDATE_EMAIL
+            ],
+            "name" => [
+                'filter' => FILTER_SANITIZE_STRING
+            ],
+            "password" => [
+                'filter' => FILTER_SANITIZE_STRING
+            ],
+            "password-repeat" => [
+                'filter' => FILTER_SANITIZE_STRING
+            ],
+            "address" => [
+                'filter' => FILTER_SANITIZE_STRING
+            ],
+            "postcode" => [
+                'filter' => FILTER_SANITIZE_STRING
+            ],
+        ];
+
+        $data = filter_input_array(INPUT_POST, $rules);
+
+        var_dump($data);
+
+        if (self::checkValues($data)) {
+            $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+            unset($data['password-repeat']);
+            $id = UserDB::insert($data);
+            echo ViewHelper::redirect(BASE_URL . "login?registered=true");
+        } else {
+            echo ViewHelper::redirect(BASE_URL . "registration?missing_parameters=true");
+        }
+    
+    }
+
+    private static function checkValues($input) {
+        if (empty($input)) {
+            return FALSE;
+        }
+
+        if ($input['password'] != $input['password-repeat']) {
+            return FALSE;
+        }
+
+        $result = TRUE;
+        foreach ($input as $value) {
+            var_dump($value);
+            $result = $result && $value != false;
+        }
+
+        return $result;
     }
 }

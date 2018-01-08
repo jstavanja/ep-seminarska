@@ -1,4 +1,4 @@
-
+<script src="static/js/store.js" type="text/javascript"></script>
 
 <?php
 require_once('header.php');

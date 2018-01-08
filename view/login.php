@@ -51,6 +51,11 @@
               Vnesli ste nepravilno kombinacijo uporabniškega imena in gesla.
           </div>
           <?php endif ?>
+          <?php if ($registered) : ?>
+          <div class="column notification is-success has-text-centered animated flipInX notification-login-error">
+              Uspešno ste se registrirali. Prosimo, prijavite se preko zgornjega obrazca.
+          </div>
+          <?php endif ?>
         </div>
         <div class="column is-one-third"></div>
       </div>

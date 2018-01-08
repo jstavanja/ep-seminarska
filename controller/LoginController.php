@@ -7,16 +7,23 @@ class LoginController {
     
     public static function index() {
 
-        $data = filter_input(INPUT_GET, 'error', FILTER_SANITIZE_URL);
+        $display = filter_input(INPUT_GET, 'error', FILTER_SANITIZE_URL);
+        $register = filter_input(INPUT_GET, 'registered', FILTER_SANITIZE_URL);
         
         $displayError = false;
-        if ($data == "true") {
+        if ($display == "true") {
             $displayError = true;
+        }
+
+        $registered = false;
+        if ($register == "true") {
+            $registered = true;
         }
         
         echo ViewHelper::render("view/login.php", [
             "title" => "Store :: Login",
-            "displayError" => $displayError
+            "displayError" => $displayError,
+            "registered" => $registered
         ]);
     }
 }
