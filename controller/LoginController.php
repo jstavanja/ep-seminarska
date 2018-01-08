@@ -40,6 +40,7 @@ class LoginController {
         $data = filter_input_array(INPUT_POST, $rules);
         $user_data = UserDB::get(["email" => $data['email']]);
         if (password_verify($data['password'], $user_data['password'])) {
+            $_SESSION["userid"] = $user_data['id'];
             $_SESSION["username"] = $user_data['username'];
             $_SESSION["user"] = $user_data['email'];
             $_SESSION["name"] = $user_data['name'];

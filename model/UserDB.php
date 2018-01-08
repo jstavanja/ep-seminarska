@@ -10,8 +10,8 @@ class UserDB extends AbstractDB {
     }
 
     public static function update(array $params) {
-        return parent::modify("UPDATE book SET author = :author, title = :title, "
-                        . "description = :description, price = :price, year = :year"
+        return parent::modify("UPDATE user SET username = :username, email = :email, "
+                        . "name = :name, password = :password, address = :address, postcode = :postcode"
                         . " WHERE id = :id", $params);
     }
 

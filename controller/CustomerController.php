@@ -21,9 +21,35 @@ class CustomerController {
     }
 
     public static function editOwnData(){
-        echo ViewHelper::render("view/customer.php", [
-            "title" => "Store :: Nadzorna plošča uporabnika"
-        ]);
+        $userId = $_SESSION["userid"];
+
+        $rules = [
+            "username" => [
+                'filter' => FILTER_SANITIZE_STRING
+            ],
+            "email" => [
+                'filter' => FILTER_VALIDATE_EMAIL
+            ],
+            "name" => [
+                'filter' => FILTER_SANITIZE_STRING
+            ],
+            "password" => [
+
+            ],
+            "password-repeat" => [
+
+            ],
+            "address" => [
+                'filter' => FILTER_SANITIZE_STRING
+            ],
+            "postcode" => [
+                'filter' => FILTER_SANITIZE_STRING
+            ],
+        ];
+        $data = filter_input_array(INPUT_POST, $rules);
+        $data["id"] = $userId;
+        UserDB::update($data);
+        echo ViewHelper::redirect(BASE_URL . "customer");
     }
 
     private static function checkValues($input) {
