@@ -61,7 +61,7 @@ try {
     if (isset($urls[$path])) {
         $urls[$path]();
     } else {
-        include($path);
+        readfile($path);
     }
 } catch (InvalidArgumentException $e) {
     ViewHelper::error404();
