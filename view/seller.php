@@ -8,7 +8,7 @@
         <span class="icon">
           <i class="fa fa-home"></i>
         </span>
-        Pozdravljen, prodajemDrva123!
+        Pozdravljen, <?php echo $_SESSION['user'] ?>!
       </h2>
     </div>
   </div>

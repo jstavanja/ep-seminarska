@@ -3,7 +3,7 @@
   <div class="field">
     <span>Uporabniško ime:</span>
     <p class="control has-icons-left">
-      <input class="input" type="email" placeholder="Uporabniško ime">
+      <input class="input" type="email" value="<?php echo $_SESSION["username"] ?>" placeholder="Uporabniško ime">
       <span class="icon is-small is-left">
         <i class="fa fa-user"></i>
       </span>
@@ -12,7 +12,7 @@
   <div class="field">
     <span>Email naslov:</span>
     <p class="control has-icons-left">
-      <input class="input" type="email" placeholder="Email naslov">
+      <input class="input" type="email" value="<?php echo $_SESSION["user"] ?>" placeholder="Email naslov">
       <span class="icon is-small is-left">
         <i class="fa fa-envelope"></i>
       </span>
@@ -48,7 +48,7 @@
   <div class="field">
     <span>Ulica in hišna številka:</span>
     <p class="control has-icons-left">
-      <input class="input" type="email" placeholder="Ulica in hišna številka">
+      <input class="input" type="email" value="<?php echo $_SESSION["address"] ?>" placeholder="Ulica in hišna številka">
       <span class="icon is-small is-left">
         <i class="fa fa-user"></i>
       </span>
@@ -57,7 +57,7 @@
   <div class="field">
     <span>Pošta:</span>
     <p class="control has-icons-left">
-      <input class="input" type="email" placeholder="Pošta">
+      <input class="input" type="email" value="<?php echo $_SESSION["postcode"] ?>" placeholder="Pošta">
       <span class="icon is-small is-left">
         <i class="fa fa-user"></i>
       </span>
