@@ -4,15 +4,18 @@ window.onload = function () {
     wrapAround: true,
     autoPlay: true
   });
-
+  
   var modalWelcome = document.querySelector('.modal');
-  modalWelcome.classList.add('is-active');
-  var modalContent = document.querySelector('.modal-content');
-  modalContent.classList.add('animated');
-  modalContent.classList.add('fadeInLeft');
 
-  var modalCloseButton = document.querySelector('.delete')
-  modalCloseButton.addEventListener('click', function () {
-    modalWelcome.classList.remove('is-active');
-  });
+  if (modalWelcome) {
+    modalWelcome.classList.add('is-active');
+    var modalContent = document.querySelector('.modal-content');
+    modalContent.classList.add('animated');
+    modalContent.classList.add('fadeInLeft');
+
+    var modalCloseButton = document.querySelector('.delete')
+    modalCloseButton.addEventListener('click', function () {
+      modalWelcome.classList.remove('is-active');
+    });
+  }
 };
