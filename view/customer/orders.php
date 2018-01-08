@@ -1,8 +1,45 @@
-<?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+<div class="page-orders">
+  <h3 class="title is-inline">Uredi naročila</h3>
+  <div class="control is-inline">
+    <div class="select">
+      <select>
+        <option>Neobdelana</option>
+        <option>Obdelana</option>
+      </select>
+    </div>
+  </div>
+  <table class="table is-hoverable is-striped is-fullwidth">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Naročnik</th>
+        <th>Status</th>
+        <th>Število artiklov</th>
+        <th>Cena</th>
+        <th>Akcije</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>24</th>
+        <th>DamjanMurko</th>
+        <th><i class="fa fa-times has-text-danger"></i></th>
+        <th>7</th>
+        <th>80.21€</th>
+        <td>
+          <a class="button is-primary is-small"><i class="fa fa-pencil-square"></i>Obdelaj</a>
+        </td>
+      </tr>
+      <tr>
+        <th>52</th>
+        <th>BorutPahor</th>
+        <th><i class="fa fa-times has-text-danger"></i></th>
+        <th>20</th>
+        <th>103.99€</th>
+        <td>
+          <a class="button is-primary is-small"><i class="fa fa-pencil-square"></i>Obdelaj</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

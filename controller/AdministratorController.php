@@ -15,6 +15,8 @@ class AdministratorController {
 
         $data = filter_input_array(INPUT_GET, $rules);
         
-        echo ViewHelper::render("view/administrator.php");
+        echo ViewHelper::render("view/administrator.php", [
+            "title" => "Store :: Nadzorna plošča administratorja"
+        ]);
     }
 }
