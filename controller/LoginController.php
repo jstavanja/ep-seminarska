@@ -40,7 +40,10 @@ class LoginController {
         $data = filter_input_array(INPUT_POST, $rules);
         $user_data = UserDB::get(["email" => $data['email']]);
         if (password_verify($data['password'], $user_data['password'])) {
-            // Log user into session
+            $_SESSION["user"] = $user_data['email'];
+            $_SESSION["name"] = $user_data['name'];
+            $_SESSION["address"] = $user_data['address'];
+            $_SESSION["postcode"] = $user_data['postcode'];
             echo ViewHelper::redirect(BASE_URL . "store?logged_in=true");
         } else {
             echo ViewHelper::redirect(BASE_URL . "login?error=true");

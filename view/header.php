@@ -35,23 +35,30 @@
               <a class="navbar-item" href="/documentation/overview/start/">
                 Košarica
               </a>
+              <?php if (!isset($_SESSION["user"])) :?>
               <a class="navbar-item" href="/index.php/login">
                 Prijava
               </a>
+              <?php else: ?>
+              <a class="navbar-item" href="/logout.php">
+                Odjava
+              </a>
+              <?php endif ?>
               <a class="navbar-item" href="/index.php/registration">
                 Registracija
               </a>
               <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link" href="#">
                   <i class="fa fa-user"></i>
-                  damjan_murko
+                  <?php if (isset($_SESSION["user"])) : ?>
+                    <?php echo $_SESSION["user"] ?>
+                  <?php else: ?>
+                    Anonimnež
+                  <?php endif ?>
                 </a>
                 <div class="navbar-dropdown is-boxed">
                   <a class="navbar-item" href="/stranka.html">
                     Nadzorna plošča
-                  </a>
-                  <a class="navbar-item" href="/">
-                    Odjava
                   </a>
                   <hr class="navbar-divider">
                   <a class="navbar-item" href="/administrator.html">
