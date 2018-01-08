@@ -1,0 +1,16 @@
+body, HTML, html {
+  background-color: #f9f9f9 !important;
+  height: 100%;
+}
+
+.container.admin-panel {
+  margin-top: 32px;
+}
+
+.page-sellers {
+  display: none;
+}
+
+.button .fa {
+  margin-right: 4px;
+}

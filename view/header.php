@@ -32,21 +32,21 @@
           </div>
           <div class="navbar-end">
             <div class="navbar-item">
-              <a class="navbar-item" href="/documentation/overview/start/">
+              <a class="navbar-item" href="/index.php/cart">
                 Košarica
               </a>
-              <?php if (!isset($_SESSION["user"])) :?>
-              <a class="navbar-item" href="/index.php/login">
-                Prijava
-              </a>
-              <?php else: ?>
+              <?php if (isset($_SESSION["user"])) :?>
               <a class="navbar-item" href="/logout.php">
                 Odjava
               </a>
-              <?php endif ?>
+              <?php else: ?>
+              <a class="navbar-item" href="/index.php/login">
+                Prijava
+              </a>
               <a class="navbar-item" href="/index.php/registration">
                 Registracija
               </a>
+              <?php endif ?>
               <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link" href="#">
                   <i class="fa fa-user"></i>
@@ -57,14 +57,14 @@
                   <?php endif ?>
                 </a>
                 <div class="navbar-dropdown is-boxed">
-                  <a class="navbar-item" href="/stranka.html">
+                  <a class="navbar-item" href="/index.php/customer">
                     Nadzorna plošča
                   </a>
                   <hr class="navbar-divider">
-                  <a class="navbar-item" href="/administrator.html">
+                  <a class="navbar-item" href="/index.php/administrator">
                     Administrator
                   </a>
-                  <a class="navbar-item" href="/prodajalec.html">
+                  <a class="navbar-item" href="/index.php/seller">
                     Prodajalec
                   </a>
                 </div>

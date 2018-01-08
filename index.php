@@ -4,6 +4,10 @@ session_start();
 require_once("controller/StoreController.php");
 require_once("controller/LoginController.php");
 require_once("controller/RegistrationController.php");
+require_once("controller/SellerController.php");
+require_once("controller/CustomerController.php");
+require_once("controller/AdministratorController.php");
+require_once("controller/CartController.php");
 
 define("BASE_URL", $_SERVER["SCRIPT_NAME"] . "/");
 define("IMAGES_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "static/images/");
@@ -45,6 +49,9 @@ $urls = [
     },
     "item" => function () {
         ItemController::index();
+    },
+    "cart" => function () {
+        CartController::index();
     },
     "" => function () {
         ViewHelper::redirect(BASE_URL . "store");

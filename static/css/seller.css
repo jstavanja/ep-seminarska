@@ -1,0 +1,24 @@
+body, HTML, html {
+  background-color: #f9f9f9 !important;
+  height: 100%;
+}
+
+.container.admin-panel {
+  margin-top: 32px;
+}
+
+.page-orders, .page-items, .page-customers {
+  display: none;
+}
+
+.page-orders .control {
+  margin-left: 20px;
+}
+
+.table {
+  margin-top: 20px;
+}
+
+.button .fa {
+  margin-right: 4px;
+}

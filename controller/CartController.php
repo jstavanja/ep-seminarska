@@ -1,9 +1,10 @@
 <?php
 
 require_once("model/StoreDB.php");
+require_once("model/UserDB.php");
 require_once("ViewHelper.php");
 
-class CustomerController {
+class CartController {
     
     public static function index() {
         $rules = [
@@ -15,8 +16,8 @@ class CustomerController {
 
         $data = filter_input_array(INPUT_GET, $rules);
         
-        echo ViewHelper::render("view/customer.php", [
-            "title" => "Store :: Nadzorna plošča uporabnika"
+        echo ViewHelper::render("view/cart.php", [
+            "title" => "Store :: Košarica"
         ]);
     }
 }

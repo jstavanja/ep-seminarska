@@ -4,6 +4,10 @@
     <title><?php echo $title; ?></title>
 
     <link rel="stylesheet" href="static/css/index.css">
+    <link rel="stylesheet" href="static/css/seller.css">
+    <link rel="stylesheet" href="static/css/customer.css">
+    <link rel="stylesheet" href="static/css/administrator.css">
+    <link rel="stylesheet" href="static/css/cart.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">

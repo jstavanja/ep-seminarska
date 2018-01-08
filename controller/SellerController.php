@@ -14,9 +14,10 @@ class SellerController {
         ];
 
         $data = filter_input_array(INPUT_GET, $rules);
-        var_dump($data);
         
-        echo ViewHelper::render("view/seller.php");
+        echo ViewHelper::render("view/seller.php", [
+            "title" => "Store :: Nadzorna plošča prodajalca"
+        ]);
     }
 }
 
