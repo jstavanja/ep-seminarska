@@ -22,6 +22,9 @@ class RegistrationController {
 
     public static function registerUser() {
         $rules = [
+            "username" => [
+                'filter' => FILTER_SANITIZE_STRING
+            ],
             "email" => [
                 'filter' => FILTER_VALIDATE_EMAIL
             ],
@@ -29,10 +32,10 @@ class RegistrationController {
                 'filter' => FILTER_SANITIZE_STRING
             ],
             "password" => [
-                'filter' => FILTER_SANITIZE_STRING
+
             ],
             "password-repeat" => [
-                'filter' => FILTER_SANITIZE_STRING
+
             ],
             "address" => [
                 'filter' => FILTER_SANITIZE_STRING
@@ -42,12 +45,12 @@ class RegistrationController {
             ],
         ];
 
+
         $data = filter_input_array(INPUT_POST, $rules);
 
-        var_dump($data);
 
         if (self::checkValues($data)) {
-            $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+            $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
             unset($data['password-repeat']);
             $id = UserDB::insert($data);
             echo ViewHelper::redirect(BASE_URL . "login?registered=true");

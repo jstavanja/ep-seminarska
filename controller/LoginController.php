@@ -26,4 +26,25 @@ class LoginController {
             "registered" => $registered
         ]);
     }
+
+    public static function log_user_in() {
+        $rules = [
+            "email" => [
+                'filter' => FILTER_VALIDATE_EMAIL
+            ],
+            "password" => [
+                
+            ]
+        ];
+
+        $data = filter_input_array(INPUT_POST, $rules);
+        $user_data = UserDB::get(["email" => $data['email']]);
+        if (password_verify($data['password'], $user_data['password'])) {
+            // Log user into session
+            echo ViewHelper::redirect(BASE_URL . "store?logged_in=true");
+        } else {
+            echo ViewHelper::redirect(BASE_URL . "login?error=true");
+        }
+    
+    }
 }

@@ -11,14 +11,14 @@
     </div>
   </section>
   <section class="section">
-    <div class="container">
+    <form class="container" action="/index.php/login/log_user_in" method="POST">
       <div class="columns animated fadeIn">
         <div class="column is-one-third"></div>
         <div class="column is-one-third">
           <div class="box">
             <div class="field">
               <p class="control has-icons-left has-icons-right">
-                <input class="input" type="email" placeholder="Email naslov">
+                <input name="email" class="input" type="email" placeholder="Email naslov">
                 <span class="icon is-small is-left">
                   <i class="fa fa-envelope"></i>
                 </span>
@@ -29,7 +29,7 @@
             </div>
             <div class="field">
               <p class="control has-icons-left">
-                <input class="input" type="password" placeholder="Geslo">
+                <input name="password" class="input" type="password" placeholder="Geslo">
                 <span class="icon is-small is-left">
                   <i class="fa fa-lock"></i>
                 </span>
@@ -64,5 +64,5 @@
           
           <div class="column is-one-third"></div>
       </div>
-    </div>
+    </form>
   </section>

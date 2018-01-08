@@ -5,8 +5,8 @@ require_once 'model/AbstractDB.php';
 class UserDB extends AbstractDB {
 
     public static function insert(array $params) {
-      return parent::modify("INSERT INTO user (email, name, password, address, postcode) "
-                      . " VALUES (:email, :name, :password, :address, :postcode)", $params);
+      return parent::modify("INSERT INTO user (username, email, name, password, address, postcode) "
+                      . " VALUES (:username, :email, :name, :password, :address, :postcode)", $params);
     }
 
     public static function update(array $params) {
@@ -19,15 +19,15 @@ class UserDB extends AbstractDB {
         return parent::modify("DELETE FROM book WHERE id = :id", $id);
     }
 
-    public static function get(array $id) {
-        $books = parent::query("SELECT id, author, title, description, price, year"
-                        . " FROM book"
-                        . " WHERE id = :id", $id);
+    public static function get(array $email) {
+        $users = parent::query("SELECT id, username, email, password, name, address, postcode"
+                        . " FROM user"
+                        . " WHERE email = :email", $email);
         
-        if (count($books) == 1) {
-            return $books[0];
+        if (count($users) == 1) {
+            return $users[0];
         } else {
-            throw new InvalidArgumentException("No such book");
+            throw new InvalidArgumentException("No such user");
         }
     }
 
@@ -35,18 +35,6 @@ class UserDB extends AbstractDB {
         return parent::query("SELECT id, author, title, price, year, description"
                         . " FROM book"
                         . " ORDER BY id ASC");
-    }
-    
-    public static function getFeatured() {
-        return [
-            ["id"=>3, "brand"=>"ZARA", "name"=>"Tangice", "price"=>19.96],
-            ["id"=>3, "brand"=>"ZARA", "name"=>"Tangice", "price"=>19.96],
-            ["id"=>3, "brand"=>"ZARA", "name"=>"Tangice", "price"=>19.96],
-            ["id"=>3, "brand"=>"ZARA", "name"=>"Tangice", "price"=>19.96],
-            ["id"=>3, "brand"=>"ZARA", "name"=>"Tangice", "price"=>19.96],
-            ["id"=>3, "brand"=>"ZARA", "name"=>"Tangice", "price"=>19.96],
-            ["id"=>3, "brand"=>"ZARA", "name"=>"Tangice", "price"=>19.96],
-        ];
     }
 
 }
