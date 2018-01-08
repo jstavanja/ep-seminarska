@@ -31,6 +31,12 @@ $urls = [
         }
         else ViewHelper::error404();
     },
+    "customer/editOwnData" => function() {
+        if ($_SERVER["REQUEST_METHOD"] == "POST"){
+            CustomerController::editOwnData();
+        }
+        else ViewHelper::error404();
+    },
     "login/log_user_in" => function () {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             LoginController::log_user_in();
