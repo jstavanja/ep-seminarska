@@ -2,7 +2,7 @@
       <nav class="navbar main-navigation">
         <div class="navbar-brand">
           <a class="navbar-item" href="/">
-            <!--<img src="/assets/logo.png" width="112" height="28">-->
+            <!--<img src="static/assets/logo.png" width="112" height="28">-->
           </a>
           <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
             <span></span>
@@ -47,7 +47,7 @@
                 Registracija
               </a>
               <?php endif ?>
-              <div class="navbar-item has-dropdown is-hoverable">
+              <div class="navbar-item <?php if (isset($_SESSION["user"])) :?> has-dropdown is-hoverable <?php endif ?>">
                 <a class="navbar-link" href="#">
                   <i class="fa fa-user"></i>
                   <?php if (isset($_SESSION["user"])) : ?>
@@ -56,6 +56,7 @@
                     Anonimnež
                   <?php endif ?>
                 </a>
+                <?php if (isset($_SESSION["user"])) :?>
                 <div class="navbar-dropdown is-boxed">
                   <a class="navbar-item" href="/index.php/customer">
                     Nadzorna plošča
@@ -68,6 +69,7 @@
                     Prodajalec
                   </a>
                 </div>
+                <?php endif ?>
               </div>
             </div>
           </div>
