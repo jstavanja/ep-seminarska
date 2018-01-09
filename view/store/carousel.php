@@ -2,25 +2,13 @@
       <h3 class="title">Vroče akcije!</h3>
       <div class="carousel">
         <div class="carousel-cell">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" alt="orange tree" />
+          <img src="<?php echo IMAGES_URL . "ep.jpg"?>" alt="orange tree" />
         </div>
         <div class="carousel-cell">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg" alt="One World Trade" />
+          <img src="<?php echo IMAGES_URL . "srajce.jpg"?>" alt="One World Trade" />
         </div>
         <div class="carousel-cell">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg" alt="drizzle" />
-        </div>
-        <div class="carousel-cell">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" alt="cat nose" />
-        </div>
-        <div class="carousel-cell">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/contrail.jpg" alt="contrail" />
-        </div>
-        <div class="carousel-cell">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/golden-hour.jpg" alt="golden hour" />
-        </div>
-        <div class="carousel-cell">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/flight-formation.jpg" alt="flight formation" />
+          <img src="<?php echo IMAGES_URL . "dodatki.jpg"?>" alt="drizzle" />
         </div>
       </div>
 </div>

@@ -10,7 +10,7 @@
                 <div class="card">
                     <div class="card-image">
                         <figure class="image is-4by3">
-                            <img src="http://lorempixel.com/700/700/fashion/" alt="Placeholder image">
+                            <img src="<?php echo IMAGES_URL . "majca.jpg"?>" alt="Placeholder image">
                         </figure>
                     </div>
                     <div class="card-content">
