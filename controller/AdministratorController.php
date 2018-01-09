@@ -59,7 +59,7 @@ class AdministratorController {
         ];
 
         $data = filter_input_array(INPUT_POST, $rules);
-        $data['role'] = "administrator";
+        $data['role'] = "seller";
         $data['status'] = 1;
 
         if (self::checkValues($data)) {

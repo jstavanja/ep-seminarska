@@ -45,7 +45,8 @@ window.onload = () => {
   })
   
   for (let i = 0; i < newCustomerButtonCloseArray.length; i++) {
-    newCustomerButtonCloseArray[i].addEventListener('click', () => {
+    newCustomerButtonCloseArray[i].addEventListener('click', (e) => {
+      e.preventDefault()
       newCustomerModal.classList.remove('is-active')
     })
   }

@@ -59,6 +59,12 @@ $urls = [
     "/^seller$/" => function ($method) {
         SellerController::index();
     },
+    "/^seller\/addCustomer$/" => function ($method) {
+        if ($method == "POST") {
+            SellerController::addCustomer();
+        }
+        else ViewHelper::error404();
+    },
     "/^item$/" => function ($method) {
         ViewHelper::redirect(BASE_URL . "store");
     },
