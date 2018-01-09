@@ -1,7 +1,7 @@
 <?php
 
 require_once("model/StoreDB.php");
-require_once("model/UserDB.php");
+require_once("model/AdministratorDB.php");
 require_once("ViewHelper.php");
 
 class AdministratorController {
@@ -9,7 +9,7 @@ class AdministratorController {
     public static function index() {
         
         if (isset($_SESSION['userid'])) {
-            if (UserDB::isAdmin(["id" => $_SESSION['userid']])) {
+            if (AdministratorDB::isAdmin(["id" => $_SESSION['userid']])) {
                 $rules = [
                     "id" => [
                         'filter' => FILTER_VALIDATE_INT,
@@ -20,7 +20,8 @@ class AdministratorController {
                 $data = filter_input_array(INPUT_GET, $rules);
                 
                 echo ViewHelper::render("view/administrator.php", [
-                    "title" => "Store :: Nadzorna plošča administratorja"
+                    "title" => "Store :: Nadzorna plošča administratorja",
+                    "sellers" => AdministratorDB::getSellers()
                 ]);
             }
             else {

@@ -9,22 +9,16 @@
       </tr>
     </thead>
     <tbody>
+    <?php foreach($sellers as $seller): ?>
       <tr>
-        <th width="70%">kefir_rupee (Aktiviran)</th>
+        <th width="70%"><?php echo $seller['email'] ?> <?php echo $seller['status'] ? "(Aktiviran)" : "(Deaktiviran)" ?></th>
         <td width="30%">
           <a class="button is-primary is-small"><i class="fa fa-check-square"></i>Aktiviraj</a>
           <a class="button is-danger is-small"><i class="fa fa-minus-square"></i>Deaktiviraj</a>
           <a class="button is-info is-small"><i class="fa fa-pencil-square"></i>Uredi</a>
         </td>
       </tr>
-      <tr>
-        <th>seniorescobar (Deaktiviran)</th>
-        <td>
-          <a class="button is-primary is-small"><i class="fa fa-check-square"></i>Aktiviraj</a>
-          <a class="button is-danger is-small"><i class="fa fa-minus-square"></i>Deaktiviraj</a>
-          <a class="button is-info is-small"><i class="fa fa-pencil-square"></i>Uredi</a>
-        </td>
-      </tr>
+    <?php endforeach; ?>
     </tbody>
   </table>
 </div>

@@ -2,7 +2,7 @@
 
 require_once 'model/AbstractDB.php';
 
-class UserDB extends AbstractDB {
+class AdministratorDB extends AbstractDB {
 
     public static function insert(array $params) {
       return parent::modify("INSERT INTO user (username, email, name, password, address, postcode, role, status) "
@@ -31,9 +31,9 @@ class UserDB extends AbstractDB {
         }
     }
 
-    public static function isSeller(array $id) {
+    public static function isAdmin(array $id) {
         $users = parent::query("SELECT certifikat"
-                        . " FROM seller"
+                        . " FROM administrator"
                         . " WHERE user_id = :id", $id);
         
         if (count($users) == 1) {
@@ -41,6 +41,12 @@ class UserDB extends AbstractDB {
         } else {
             return false;
         }
+    }
+
+    public static function getSellers() {
+      // get and return full data
+      return parent::query("SELECT * FROM seller"
+                          . " INNER JOIN user ON user.id = seller.user_id");
     }
 
     public static function getAll() {
