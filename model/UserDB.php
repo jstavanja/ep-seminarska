@@ -31,18 +31,6 @@ class UserDB extends AbstractDB {
         }
     }
 
-    public static function isSeller(array $id) {
-        $users = parent::query("SELECT certifikat"
-                        . " FROM seller"
-                        . " WHERE user_id = :id", $id);
-        
-        if (count($users) == 1) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public static function getAll() {
         return parent::query("SELECT id, author, title, price, year, description"
                         . " FROM book"

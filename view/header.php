@@ -52,12 +52,12 @@
                     Nadzorna plošča
                   </a>
                   <hr class="navbar-divider">
-                  <?php if (UserDB::isAdmin(["id" => $_SESSION['userid']])): ?>
+                  <?php if (AdministratorDB::isAdmin(["id" => $_SESSION['userid']])): ?>
                   <a class="navbar-item" href="/index.php/administrator">
                     Administrator
                   </a>
                   <?php endif ?>
-                  <?php if (UserDB::isSeller(["id" => $_SESSION['userid']])): ?>
+                  <?php if (SellerDB::isSeller(["id" => $_SESSION['userid']])): ?>
                   <a class="navbar-item" href="/index.php/seller">
                     Prodajalec
                   </a>

@@ -1,14 +1,14 @@
 <?php
 
-require_once("model/StoreDB.php");
 require_once("ViewHelper.php");
+require_once("model/SellerDB.php");
 
 class SellerController {
     
     public static function index() {
 
         if (isset($_SESSION['userid'])) {
-            if (UserDB::isSeller(["id" => $_SESSION['userid']])) {
+            if (SellerDB::isSeller(["id" => $_SESSION['userid']])) {
                 $rules = [
                     "id" => [
                         'filter' => FILTER_VALIDATE_INT,
@@ -19,7 +19,8 @@ class SellerController {
                 $data = filter_input_array(INPUT_GET, $rules);
                 
                 echo ViewHelper::render("view/seller.php", [
-                    "title" => "Store :: Nadzorna plošča prodajalca"
+                    "title" => "Store :: Nadzorna plošča prodajalca",
+                    "customers" => SellerDB::getCustomers()
                 ]);
             }
             else {
