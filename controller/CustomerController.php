@@ -47,6 +47,7 @@ class CustomerController {
             ],
         ];
         $data = filter_input_array(INPUT_POST, $rules);
+        $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
         $data["id"] = $userId;
         UserDB::update($data);
         echo ViewHelper::redirect(BASE_URL . "customer");

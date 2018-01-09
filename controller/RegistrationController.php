@@ -47,7 +47,10 @@ class RegistrationController {
 
 
         $data = filter_input_array(INPUT_POST, $rules);
+        $data['role'] = "user";
+        $data['status'] = 1;
 
+        echo $data;
 
         if (self::checkValues($data)) {
             $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
