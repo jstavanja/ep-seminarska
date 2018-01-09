@@ -7,12 +7,12 @@ require_once("auth_check.php");
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo $title; ?></title>
 
-    <link rel="stylesheet" href="static/css/index.css">
-    <link rel="stylesheet" href="static/css/seller.css">
-    <link rel="stylesheet" href="static/css/customer.css">
-    <link rel="stylesheet" href="static/css/administrator.css">
-    <link rel="stylesheet" href="static/css/cart.css">
-    <link rel="stylesheet" href="static/css/item.css">
+    <link rel="stylesheet" href="<?php echo CSS_URL . "index.css"?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo CSS_URL . "seller.css"?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo CSS_URL . "customer.css"?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo CSS_URL . "administrator.css"?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo CSS_URL . "cart.css"?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo CSS_URL . "item.css"?>" type="text/css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">

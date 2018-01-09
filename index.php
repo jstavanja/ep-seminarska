@@ -62,6 +62,18 @@ $urls = [
     "/^cart$/" => function ($method) {
         CartController::index();
     },
+    "/^static\/images\/.*?$/" => function ($method) {
+        $path = isset($_SERVER["PATH_INFO"]) ? trim($_SERVER["PATH_INFO"], "/") : "";
+        readfile($path);
+    },
+    "/^static\/css\/.*?$/" => function ($method) {
+        $path = isset($_SERVER["PATH_INFO"]) ? trim($_SERVER["PATH_INFO"], "/") : "";
+        readfile($path);
+    },
+    "/^static\/js\/.*?$/" => function ($method) {
+        $path = isset($_SERVER["PATH_INFO"]) ? trim($_SERVER["PATH_INFO"], "/") : "";
+        readfile($path);
+    },
     "/^$/" => function ($method) {
         ViewHelper::redirect(BASE_URL . "store");
     },
@@ -79,10 +91,5 @@ foreach ($urls as $pattern => $controller) {
         }
         exit();
     }
-
 }
-
-// če path ne fitta nobenmu pageu, serviraj asset quic hacc
-readfile($path);
-exit();
 
