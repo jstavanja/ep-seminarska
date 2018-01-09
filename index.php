@@ -47,6 +47,12 @@ $urls = [
     "/^administrator$/" => function ($method) {
         AdministratorController::index();
     },
+    "/^administrator\/addSeller$/" => function ($method) {
+        if ($method == "POST") {
+            AdministratorController::addSeller();
+        }
+        else ViewHelper::error404();
+    },
     "/^customer$/" => function ($method) {
         CustomerController::index();
     },

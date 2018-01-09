@@ -5,8 +5,8 @@ require_once 'model/AbstractDB.php';
 class SellerDB extends AbstractDB {
 
     public static function insert(array $params) {
-      return parent::modify("INSERT INTO user (username, email, name, password, address, postcode, role, status) "
-                      . " VALUES (:username, :email, :name, :password, :address, :postcode, :role, :status)", $params);
+      return parent::modify("INSERT INTO seller (user_id, activated, certifikat) "
+                      . " VALUES (:user_id, :activated, :certifikat)", $params);
     }
 
     public static function update(array $params) {
