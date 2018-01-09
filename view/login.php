@@ -11,7 +11,7 @@
     </div>
   </section>
   <section class="section">
-    <form class="container" action="/index.php/login/log_user_in" method="POST">
+    <form class="container" action="/index.php/login/logUserIn" method="POST">
       <div class="columns animated fadeIn">
         <div class="column is-one-third"></div>
         <div class="column is-one-third">
@@ -37,7 +37,7 @@
             </div>
             <div class="field">
               <p class="control has-text-centered	">
-                <button class="button is-success button-login">
+                <button class="button is-success button-login" type="submit">
                   Prijavi se
                 </button>
               </p>

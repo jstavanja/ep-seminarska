@@ -1,8 +1,39 @@
-<?php
+<?php require_once('header.php'); ?>
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+<div class="container item-container">
+  <div class="columns">
+    <div class="column is-two-thirds">
+      <div class="box">
+        <article class="media">
+          <div class="media-content">
+            <div class="content">
+              <h1>Tangice</h1>
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg"></img>
+              <p>
+                <strong>Zara</strong> <small>Moški</small>
+                <br>
+                Prelepe in zelo tanke moške tangice.
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="column is one-third">
+      <div class="card">
+        <div class="card-content">
+          <p class="title">
+            13.99$
+          </p>
+        </div>
+        <footer class="card-footer">
+          <p class="card-footer-item">
+            <span>
+              <a href="https://twitter.com/codinghorror/status/506010907021828096">V košarico</a>
+            </span>
+          </p>
+        </footer>
+      </div>
+    </div>
+  </div>
+</div>

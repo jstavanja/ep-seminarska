@@ -7,6 +7,7 @@ require_once("controller/SellerController.php");
 require_once("controller/CustomerController.php");
 require_once("controller/AdministratorController.php");
 require_once("controller/CartController.php");
+require_once("controller/ItemController.php");
 
 define("BASE_URL", $_SERVER["SCRIPT_NAME"] . "/");
 define("IMAGES_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "static/images/");
@@ -16,62 +17,72 @@ $path = isset($_SERVER["PATH_INFO"]) ? trim($_SERVER["PATH_INFO"], "/") : "";
 
 // ROUTER: defines mapping between URLS and controllers
 $urls = [
-    "store" => function () {
+    "/^store$/" => function ($method) {
         StoreController::index();
     },
-    "login" => function () {
+    "/^login$/" => function ($method) {
         LoginController::index();
     },
-    "registration" => function () {
+    "/^registration$/" => function ($method) {
         RegistrationController::index();
     },
-    "registration/registerUser" => function () {
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    "/^registration\/registerUser$/" => function ($method) {
+        if ($method == "POST") {
             RegistrationController::registerUser();
         }
         else ViewHelper::error404();
     },
-    "customer/editOwnData" => function() {
-        if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    "/^login\/logUserIn$/" => function ($method) {
+        if ($method == "POST") {
+            LoginController::logUserIn();
+        }
+        else ViewHelper::error404();
+    },
+    "/^customer\/editOwnData$/" => function($method) {
+        if ($method == "POST"){
             CustomerController::editOwnData();
         }
         else ViewHelper::error404();
     },
-    "login/log_user_in" => function () {
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            LoginController::log_user_in();
-        }
-        else ViewHelper::error404();
-    },
-    "administrator" => function () {
+    "/^administrator$/" => function ($method) {
         AdministratorController::index();
     },
-    "customer" => function () {
+    "/^customer$/" => function ($method) {
         CustomerController::index();
     },
-    "seller" => function () {
+    "/^seller$/" => function ($method) {
         SellerController::index();
     },
-    "item" => function () {
-        ItemController::index();
+    "/^item$/" => function ($method) {
+        ViewHelper::redirect(BASE_URL . "store");
     },
-    "cart" => function () {
+    "/^item\/(\d+)$/" => function ($method, $id) {
+        ItemController::index($id);
+    },
+    "/^cart$/" => function ($method) {
         CartController::index();
     },
-    "" => function () {
+    "/^$/" => function ($method) {
         ViewHelper::redirect(BASE_URL . "store");
     },
 ];
-    
-try {
-    if (isset($urls[$path])) {
-        $urls[$path]();
-    } else {
-        readfile($path);
+   
+foreach ($urls as $pattern => $controller) {
+    if (preg_match($pattern, $path, $params)) {
+        try {
+            $params[0] = $_SERVER["REQUEST_METHOD"];
+            $controller(...$params);
+        } catch (InvalidArgumentException $e) {
+            ViewHelper::error404();
+        } catch (Exception $e) {
+            ViewHelper::displayError($e, true);
+        }
+        exit();
     }
-} catch (InvalidArgumentException $e) {
-    ViewHelper::error404();
-} catch (Exception $e) {
-    echo "An error occurred: <pre>$e</pre>";
-} 
+
+}
+
+// če path ne fitta nobenmu pageu, serviraj asset quic hacc
+readfile($path);
+exit();
 

@@ -14,7 +14,6 @@ class ItemController {
         ];
 
         $data = filter_input_array(INPUT_GET, $rules);
-        var_dump($data);
         
         echo ViewHelper::render("view/item.php");
     }

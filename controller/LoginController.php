@@ -27,7 +27,8 @@ class LoginController {
         ]);
     }
 
-    public static function log_user_in() {
+    public static function logUserIn() {
+
         $rules = [
             "email" => [
                 'filter' => FILTER_VALIDATE_EMAIL
