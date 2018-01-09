@@ -20,16 +20,6 @@
               Ženske
             </a>
           </div>
-          <div class="navbar-center">
-            <div class="navbar-item">
-              <div class="control has-icons-left">
-                <input class="input is-rounded" type="text" placeholder="Išči po izdelkih ...">
-                <span class="icon is-small is-left">
-                  <i class="fa fa-search"></i>
-                </span>
-              </div>
-            </div>
-          </div>
           <div class="navbar-end">
             <div class="navbar-item">
               <a class="navbar-item" href="/index.php/cart">
