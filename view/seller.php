@@ -52,5 +52,6 @@
 </div>
 
 <?php require_once("view/seller/modal-new-customer.php"); ?>
+<?php require_once("view/seller/modal-new-item.php"); ?>
 
 <script src="/static/js/seller.js" type="text/javascript"></script>

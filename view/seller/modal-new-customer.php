@@ -76,5 +76,5 @@
       <button class="button is-success">Shrani</button>
       <button class="button button-modal-close">Prekliči</button>
     </footer>
-  </div>
+  </form>
 </div>

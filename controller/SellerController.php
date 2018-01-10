@@ -2,6 +2,7 @@
 
 require_once("ViewHelper.php");
 require_once("model/SellerDB.php");
+require_once("model/ItemDB.php");
 
 class SellerController {
     
@@ -20,7 +21,8 @@ class SellerController {
                 
                 echo ViewHelper::render("view/seller.php", [
                     "title" => "Store :: Nadzorna plošča prodajalca",
-                    "customers" => SellerDB::getCustomers()
+                    "customers" => SellerDB::getCustomers(),
+                    "items" => ItemDB::getAll()
                 ]);
             }
             else {
@@ -70,6 +72,33 @@ class SellerController {
             echo ViewHelper::redirect(BASE_URL . "seller?missing_parameters=true");
         }
     }
+
+    public static function addItem() {
+        $rules = [
+            "name" => [
+                'filter' => FILTER_SANITIZE_STRING
+            ],
+            "description" => [
+                'filter' => FILTER_SANITIZE_STRING
+            ],
+            "price" => [
+                'filter' => FILTER_SANITIZE_INT
+            ],
+            "tag" => [
+                'filter' => FILTER_SANITIZE_STRING
+            ]
+        ];
+
+        $data = filter_input_array(INPUT_POST, $rules);
+
+        if (self::checkValues($data)) {
+            $id = ItemDB::insert($data);
+            echo ViewHelper::redirect(BASE_URL . "seller?itemAdded=true");
+        } else {
+            echo ViewHelper::redirect(BASE_URL . "seller?item_missing_parameters=true");
+        }
+    }
+
 
     private static function checkValues($input) {
         if (empty($input)) {

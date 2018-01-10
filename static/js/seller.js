@@ -5,6 +5,7 @@ window.onload = () => {
   const customersButton = document.querySelector('.button-customers')
   const newCustomerButton = document.querySelector('.button-new-customer')
   const newCustomerButtonCloseArray = document.getElementsByClassName("button-modal-close")
+  const newItemButton = document.querySelector('.button-new-item');
 
   // Pages
   const defaultPage = document.querySelector('.page-default')
@@ -14,6 +15,7 @@ window.onload = () => {
 
   // Modal
   const newCustomerModal = document.querySelector('.modal-new-customer')
+  const newItemModal = document.querySelector('.modal-new-item')
   
   // Event listeners for menu buttons
   ordersButton.addEventListener('click', () => {
@@ -44,10 +46,15 @@ window.onload = () => {
     newCustomerModal.classList.add('is-active')
   })
   
+  newItemButton.addEventListener('click', () => {
+    newItemModal.classList.add('is-active')
+  })
+
   for (let i = 0; i < newCustomerButtonCloseArray.length; i++) {
     newCustomerButtonCloseArray[i].addEventListener('click', (e) => {
       e.preventDefault()
       newCustomerModal.classList.remove('is-active')
+      newItemModal.classList.remove('is-active')
     })
   }
 }

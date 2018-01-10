@@ -65,11 +65,23 @@ $urls = [
         }
         else ViewHelper::error404();
     },
+    "/^seller\/deleteItem\/(\d+)$/" => function ($method, $id) {
+        if ($method == "POST") {
+            ItemController::deleteItem($id);
+        }
+        else SellerController::index();
+    },
+    "/^seller\/addItem$/" => function ($method) {
+        if ($method == "POST") {
+            SellerController::addItem();
+        }
+        else ViewHelper::error404();
+    },
     "/^item$/" => function ($method) {
         ViewHelper::redirect(BASE_URL . "store");
     },
     "/^item\/(\d+)$/" => function ($method, $id) {
-        ItemController::index($id);
+        ItemController::index($method, $id);
     },
     "/^cart$/" => function ($method) {
         CartController::index();
