@@ -64,3 +64,5 @@
     </footer>
   </form>
 </div>
+
+<script src="/static/js/seller-edit-item.js" type="text/javascript"></script>

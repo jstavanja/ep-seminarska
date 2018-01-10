@@ -6,22 +6,24 @@
         <?php if ($i % 4 == 0): ?>
         <div class="columns">
         <?php endif ?>
-            <div class="column is-one-quarter" href="<?= BASE_URL . "items?id=" . $item["id"] ?>">
-                <div class="card">
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <img src="<?php echo IMAGES_URL . "majca.jpg"?>" alt="Placeholder image">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="media">
-                            <div class="media-content">
-                                <p class="title is-4"><?= $item["brand"] ?>: <?= $item["name"] ?></p>
-                                <p class="subtitle is-6"><?= $item["price"] ?>$</p>
+            <div class="column is-one-quarter">
+                <a href="<?= BASE_URL . "item/" . $item["id"] ?>">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="<?php echo IMAGES_URL . "majca.jpg"?>" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-4"><?= $item["name"] ?></p>
+                                    <p class="subtitle is-6"><?= $item["price"] ?>$</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         <?php if ($i % 4 == 3): ?>
         </div>

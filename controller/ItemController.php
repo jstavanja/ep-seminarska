@@ -17,7 +17,8 @@ class ItemController {
         $data = filter_input_array(INPUT_GET, $rules);
         
         echo ViewHelper::render("view/item.php", [
-            "title" => "Store :: Artikel" . $id
+            "title" => "Store :: Artikel" . $id,
+            "item" => ItemDB::get(["id" => $id])
         ]);
     }
 

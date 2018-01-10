@@ -18,7 +18,7 @@ class StoreController {
         
         echo ViewHelper::render("view/store.php", [
             "title" => "Store :: Home",
-            "items" => StoreDB::getFeatured()
+            "items" => StoreDB::getAll()
         ]);
     }
 

@@ -32,21 +32,13 @@ class StoreDB extends AbstractDB {
     }
 
     public static function getAll() {
-        return parent::query("SELECT id, author, title, price, year, description"
-                        . " FROM book"
+        return parent::query("SELECT *"
+                        . " FROM item"
                         . " ORDER BY id ASC");
     }
     
     public static function getFeatured() {
-        return [
-            ["id"=>3, "brand"=>"ZARA", "name"=>"Tangice", "price"=>19.96],
-            ["id"=>3, "brand"=>"ZARA", "name"=>"Tangice", "price"=>19.96],
-            ["id"=>3, "brand"=>"ZARA", "name"=>"Tangice", "price"=>19.96],
-            ["id"=>3, "brand"=>"ZARA", "name"=>"Tangice", "price"=>19.96],
-            ["id"=>3, "brand"=>"ZARA", "name"=>"Tangice", "price"=>19.96],
-            ["id"=>3, "brand"=>"ZARA", "name"=>"Tangice", "price"=>19.96],
-            ["id"=>3, "brand"=>"ZARA", "name"=>"Tangice", "price"=>19.96],
-        ];
+        return [];
     }
 
 }

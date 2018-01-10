@@ -7,12 +7,12 @@
         <article class="media">
           <div class="media-content">
             <div class="content">
-              <h1>Tangice</h1>
+              <h1><?php echo $item["name"];?></h1>
               <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg"></img>
               <p>
-                <strong>Zara</strong> <small>Moški</small>
+                <small><?php echo $item["tag"];?></small>
                 <br>
-                Prelepe in zelo tanke moške tangice.
+                <?php echo $item["description"];?>
               </p>
             </div>
           </div>
@@ -23,7 +23,7 @@
       <div class="card">
         <div class="card-content">
           <p class="title">
-            13.99$
+          <?php echo $item["price"];?>$
           </p>
         </div>
         <footer class="card-footer">
