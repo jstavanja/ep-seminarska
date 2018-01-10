@@ -57,7 +57,15 @@
     </div>
     <footer class="card-footer">
       <a href="#" class="card-footer-item is-success">Zaključi nakup</a>
-      <a href="#" class="card-footer-item">Skupaj: 69.69$</a>
+      <a href="#" class="card-footer-item">Skupaj: 
+      <?php 
+      $total_price = 0;
+      foreach ($items as $item) {
+        $total_price += $item["price"] * $item["amount"];
+      }
+      echo $total_price;
+      ?>
+      $</a>
     </footer>
   </div>
 </div>
