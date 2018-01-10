@@ -1,6 +1,5 @@
 <?php require_once("header.php"); ?>
 
-
 <div class="container cart-container">
   <div class="card">
     <header class="card-header">
@@ -15,7 +14,7 @@
     </header>
     <div class="card-content">
       <div class="cart-items">
-        <a class="button is-danger is-pulled-right is-inline">Izprazni košarico</a>
+        <a class="button is-danger is-pulled-right is-inline" onclick="document.getElementById('empty-cart-form').submit();">Izprazni košarico</a>
         <table class="table is-hoverable is-striped is-fullwidth">
           <thead>
             <tr>
@@ -23,28 +22,35 @@
               <th>Ime</th>
               <th>Kategorija</th>
               <th>Cena</th>
+              <th>Količina</th>
               <th>Akcije</th>
             </tr>
           </thead>
           <tbody>
+            <?php foreach($items as $item): ?>
             <tr>
-              <th>0</th>
-              <th>Mankini</th>
-              <th>Oblačila</th>
-              <th>10.69€</th>
+              <th><?php echo $item["id"]; ?></th>
+              <th><?php echo $item["name"]; ?></th>
+              <th><?php echo $item["tag"]; ?></th>
+              <th><?php echo $item["price"]; ?>€</th>
+              <th>
+                <form class="is-inline" action="/index.php/cart/updateCart" method="post">
+                  <input type="hidden" name="do" value="update_cart">
+                  <input type="hidden" name="id" value="<?php echo $item["id"]; ?>">
+                  <input class="is-inline" type="number" value="<?php echo $item["amount"]; ?>" name="amount">
+                  <button class="is-success is-small is-inline">Posodobi</button>
+                </form>
+              </th>
               <td>
-                <a class="button is-danger is-small"><i class="fa fa-minus-square"></i>Izbriši</a>
+                <form style="display: none;" action="/index.php/cart/updateCart" id="delete-item-form" method="post">
+                  <input type="hidden" name="do" value="update_cart">
+                  <input type="hidden" name="id" value="<?php echo $item["id"]; ?>">
+                  <input type="number" value="0" name="amount">
+                </form>
+                <a class="button is-danger is-small" onclick="document.getElementById('delete-item-form').submit()"><i class="fa fa-minus-square"></i>Izbriši</a>
               </td>
             </tr>
-            <tr>
-              <th>1</th>
-              <th>Tangice</th>
-              <th>Oblačila</th>
-              <th>13.37€</th>
-              <td>
-                <a class="button is-danger is-small"><i class="fa fa-minus-square"></i>Izbriši</a>
-              </td>
-            </tr>
+            <?php endforeach; ?>
           </tbody>
         </table>
       </div>
@@ -55,3 +61,7 @@
     </footer>
   </div>
 </div>
+
+<form action="/index.php/cart/emptyCart" id="empty-cart-form" method="post">
+  <input type="hidden" name="do" value="purge_cart">
+</form>

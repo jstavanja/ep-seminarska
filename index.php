@@ -92,6 +92,24 @@ $urls = [
     "/^cart$/" => function ($method) {
         CartController::index();
     },
+    "/^cart\/addToCart$/" => function ($method) {
+        if ($method == "POST") {
+            CartController::updateCart();
+        }
+        else ViewHelper::error404();
+    },
+    "/^cart\/emptyCart$/" => function ($method) {
+        if ($method == "POST") {
+            CartController::updateCart();
+        }
+        else ViewHelper::error404();
+    },
+    "/^cart\/updateCart$/" => function ($method) {
+        if ($method == "POST") {
+            CartController::updateCart();
+        }
+        else ViewHelper::error404();
+    },
     "/^static\/images\/.*?$/" => function ($method) {
         $path = isset($_SERVER["PATH_INFO"]) ? trim($_SERVER["PATH_INFO"], "/") : "";
         readfile($path);

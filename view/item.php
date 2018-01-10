@@ -29,7 +29,7 @@
         <footer class="card-footer">
           <p class="card-footer-item">
             <span>
-              <a href="https://twitter.com/codinghorror/status/506010907021828096">V košarico</a>
+              <a onclick="document.getElementById('cart-add-form').submit();">V košarico</a>
             </span>
           </p>
         </footer>
@@ -37,3 +37,8 @@
     </div>
   </div>
 </div>
+
+<form id="cart-add-form" action="/index.php/cart/addToCart" method="post" style="display:none;">
+  <input type="hidden" name="id" value="<?php echo $item["id"];?>">
+  <input type="hidden" name="do" value="add_into_cart">
+</form>
