@@ -53,6 +53,24 @@ $urls = [
         }
         else ViewHelper::error404();
     },
+    "/^administrator\/editSeller\/(\d+)$/" => function ($method, $id) {
+        if ($method == "POST") {
+            AdministratorController::editSeller($id);
+        }
+        AdministratorController::editSellerIndex($id);
+    },
+    "/^administrator\/activateSeller$/" => function ($method) {
+        if ($method == "POST") {
+            AdministratorController::activateSeller();
+        }
+        else ViewHelper::error404();
+    },
+    "/^administrator\/deactivateSeller$/" => function ($method) {
+        if ($method == "POST") {
+            AdministratorController::deactivateSeller();
+        }
+        else ViewHelper::error404();
+    },
     "/^customer$/" => function ($method) {
         CustomerController::index();
     },
