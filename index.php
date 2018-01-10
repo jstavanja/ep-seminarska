@@ -71,6 +71,12 @@ $urls = [
         }
         else SellerController::index();
     },
+    "/^seller\/editItem\/(\d+)$/" => function ($method, $id) {
+        if ($method == "POST") {
+            ItemController::editItem($id);
+        }
+        SellerController::editItemIndex($id);
+    },
     "/^seller\/addItem$/" => function ($method) {
         if ($method == "POST") {
             SellerController::addItem();

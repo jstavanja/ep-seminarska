@@ -10,8 +10,8 @@ class ItemDB extends AbstractDB {
     }
 
     public static function update(array $params) {
-        return parent::modify("UPDATE user SET username = :username, email = :email, "
-                        . "name = :name, password = :password, address = :address, postcode = :postcode"
+        return parent::modify("UPDATE item SET name = :name, description = :description, "
+                        . "price = :price, tag = :tag"
                         . " WHERE id = :id", $params);
     }
 
@@ -19,13 +19,13 @@ class ItemDB extends AbstractDB {
         return parent::modify("DELETE FROM item WHERE id = :id", $id);
     }
 
-    public static function get(array $email) {
-        $users = parent::query("SELECT id, username, email, password, name, address, postcode, role, status"
-                        . " FROM user"
-                        . " WHERE email = :email", $email);
+    public static function get(array $id) {
+        $items = parent::query("SELECT *"
+                        . " FROM item"
+                        . " WHERE id = :id", $id);
         
-        if (count($users) == 1) {
-            return $users[0];
+        if (count($items) == 1) {
+            return $items[0];
         } else {
             throw new InvalidArgumentException("No such user");
         }

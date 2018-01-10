@@ -34,6 +34,24 @@ class SellerController {
         }
     }
 
+    public static function editItemIndex($id) {
+
+        if (isset($_SESSION['userid'])) {
+            if (SellerDB::isSeller(["id" => $_SESSION['userid']])) {
+                echo ViewHelper::render("view/seller/edit-item.php", [
+                    "title" => "Store :: Urejanje artikla " . $id,
+                    "item" => ItemDB::get(["id" => $id])
+                ]);
+            }
+            else {
+                throw new InvalidArgumentException("No bueno.");
+            }
+        }
+        else {
+            throw new InvalidArgumentException("No bueno.");
+        }
+    }
+
     public static function addCustomer() {
         $rules = [
             "username" => [
@@ -98,7 +116,6 @@ class SellerController {
             echo ViewHelper::redirect(BASE_URL . "seller?item_missing_parameters=true");
         }
     }
-
 
     private static function checkValues($input) {
         if (empty($input)) {
