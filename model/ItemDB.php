@@ -42,9 +42,19 @@ class ItemDB extends AbstractDB {
     }
 
     public static function getCart() {
+
+        if (!isset($_SESSION["cart"])) {
+            return [];
+        }
         $ids = array_keys($_SESSION["cart"]);
+
+        if (empty($ids)) {
+            return [];
+        }
+
         $sql = "SELECT * FROM item WHERE id IN (".implode(',',$ids).")";
         $data = parent::query($sql);
+
         $i = 0;
         foreach($data as $d) {
             $data[$i]["amount"] = $_SESSION["cart"][intval($d["id"])];
