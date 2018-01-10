@@ -31,6 +31,12 @@ class ItemDB extends AbstractDB {
         }
     }
 
+    public static function getByTag(array $tag) {
+        return parent::query("SELECT *"
+                        . " FROM item"
+                        . " WHERE tag = :tag", $tag);
+    }
+
     public static function getCustomers() {
       // get and return full data
       return parent::query("SELECT * FROM user");

@@ -20,6 +20,9 @@ $urls = [
     "/^store$/" => function ($method) {
         StoreController::index();
     },
+    "/^store\/(.*?)$/" => function ($method, $tag) {
+        StoreController::indexByTag($tag);
+    },
     "/^login$/" => function ($method) {
         LoginController::index();
     },

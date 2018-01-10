@@ -22,6 +22,22 @@ class StoreController {
         ]);
     }
 
+    public static function indexByTag($tag) {
+
+        $rules = [
+            "tag" => [
+                'filter' => FILTER_SANITIZE_STRING
+            ]
+        ];
+
+        $data = filter_input_array(INPUT_GET, $rules);
+        
+        echo ViewHelper::render("view/tag.php", [
+            "title" => "Store :: Stvari tipa " . $tag,
+            "items" => ItemDB::getByTag(["tag" => $tag])
+        ]);
+    }
+
     public static function addForm($values = [
         "author" => "",
         "title" => "",

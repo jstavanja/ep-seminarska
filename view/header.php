@@ -13,10 +13,10 @@
       
         <div id="navbarExampleTransparentExample" class="navbar-menu">
           <div class="navbar-start">
-            <a class="navbar-item" href="/kategorija.html">
+            <a class="navbar-item" href="<?php echo BASE_URL . "store/men"?>">
               Moški
             </a>
-            <a class="navbar-item" href="/kategorija.html">
+            <a class="navbar-item" href="<?php echo BASE_URL . "store/women"?>">
               Ženske
             </a>
           </div>
