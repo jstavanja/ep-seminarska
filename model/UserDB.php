@@ -15,6 +15,11 @@ class UserDB extends AbstractDB {
                         . " WHERE id = :id", $params);
     }
 
+    public static function updateStatus(array $params) {
+        return parent::modify("UPDATE user SET status = :status"
+                        . " WHERE id = :id", $params);
+    }
+
     public static function delete(array $id) {
         return parent::modify("DELETE FROM book WHERE id = :id", $id);
     }

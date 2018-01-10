@@ -71,6 +71,18 @@ $urls = [
         }
         SellerController::editCustomerIndex($id);
     },
+    "/^seller\/activateCustomer$/" => function ($method) {
+        if ($method == "POST") {
+            SellerController::activateCustomer();
+        }
+        else ViewHelper::error404();
+    },
+    "/^seller\/deactivateCustomer$/" => function ($method) {
+        if ($method == "POST") {
+            SellerController::deactivateCustomer();
+        }
+        else ViewHelper::error404();
+    },
     "/^seller\/deleteItem\/(\d+)$/" => function ($method, $id) {
         if ($method == "POST") {
             ItemController::deleteItem($id);

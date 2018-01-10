@@ -174,6 +174,42 @@ class SellerController {
         }
     }
 
+    public static function activateCustomer() {
+        $rules = [
+            "id" => [
+                
+            ]
+        ];
+
+        $data = filter_input_array(INPUT_POST, $rules);
+
+        if (self::checkValues($data)) {
+            $data["status"] = 1;
+            UserDB::updateStatus($data);
+            echo ViewHelper::redirect(BASE_URL . "seller");
+        } else {
+            echo ViewHelper::redirect(BASE_URL . "seller?item_missing_parameters=true");
+        }
+    }
+
+    public static function deactivateCustomer() {
+        $rules = [
+            "id" => [
+                
+            ]
+        ];
+
+        $data = filter_input_array(INPUT_POST, $rules);
+
+        if (self::checkValues($data)) {
+            $data["status"] = 0;
+            UserDB::updateStatus($data);
+            echo ViewHelper::redirect(BASE_URL . "seller");
+        } else {
+            echo ViewHelper::redirect(BASE_URL . "seller?item_missing_parameters=true");
+        }
+    }
+
     private static function checkValues($input) {
         if (empty($input)) {
             return FALSE;
