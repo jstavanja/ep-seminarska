@@ -15,7 +15,7 @@
         <td width="30%">
           <a class="button is-primary is-small"><i class="fa fa-check-square"></i>Aktiviraj</a>
           <a class="button is-danger is-small"><i class="fa fa-minus-square"></i>Deaktiviraj</a>
-          <a class="button is-info is-small"><i class="fa fa-pencil-square"></i>Uredi</a>
+          <a href="/index.php/seller/editCustomer/<?php echo $customer["id"];?>" class="button is-info is-small"><i class="fa fa-pencil-square"></i>Uredi</a>
         </td>
       </tr>
     <?php endforeach; ?>

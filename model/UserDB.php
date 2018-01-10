@@ -31,6 +31,18 @@ class UserDB extends AbstractDB {
         }
     }
 
+    public static function getById(array $email) {
+        $users = parent::query("SELECT *"
+                        . " FROM user"
+                        . " WHERE id = :id", $email);
+        
+        if (count($users) == 1) {
+            return $users[0];
+        } else {
+            throw new InvalidArgumentException("No such user");
+        }
+    }
+
     public static function getAll() {
         return parent::query("SELECT id, author, title, price, year, description"
                         . " FROM book"

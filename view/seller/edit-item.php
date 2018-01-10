@@ -18,7 +18,7 @@
 <form class="modal-card" action="/index.php/seller/editItem/<?php echo $item["id"];?>" method="POST">
     <header class="modal-card-head">
       <p class="modal-card-title">Uredi artikel</p>
-      <button class="delete button-modal-close" aria-label="close"></button>
+      <button class="delete item-close button-modal-close" aria-label="close"></button>
     </header>
     <section class="modal-card-body">
       <div class="field">
@@ -60,7 +60,7 @@
     </section>
     <footer class="modal-card-foot">
       <button type="submit" class="button is-success">Shrani</button>
-      <button class="button button-modal-close">Prekliči</button>
+      <button class="button item-close button-modal-close">Prekliči</button>
     </footer>
   </form>
 </div>

@@ -65,6 +65,12 @@ $urls = [
         }
         else ViewHelper::error404();
     },
+    "/^seller\/editCustomer\/(\d+)$/" => function ($method, $id) {
+        if ($method == "POST") {
+            SellerController::editCustomer($id);
+        }
+        SellerController::editCustomerIndex($id);
+    },
     "/^seller\/deleteItem\/(\d+)$/" => function ($method, $id) {
         if ($method == "POST") {
             ItemController::deleteItem($id);
