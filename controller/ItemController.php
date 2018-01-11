@@ -68,4 +68,10 @@ class ItemController {
 
         return $result;
     }
+
+    public static function getAllItemsJSON() {
+        $items = ItemDB::getAll();
+        header("Content-type: application/json");
+        echo json_encode($items, JSON_FORCE_OBJECT);
+    }
 }
