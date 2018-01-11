@@ -19,6 +19,9 @@ require_once("auth_check.php");
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <script src="https://unpkg.com/flickity@2.0.10/dist/flickity.pkgd.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="https://unpkg.com/flickity@2.0.10/dist/flickity.css">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+
+    <style>body * { font-family: 'Varela Round', sans-serif;}</style>
 
     <link rel="icon" href=<?php echo IMAGES_URL . "favicon.ico"?> type="image/x-icon">
 </head>
