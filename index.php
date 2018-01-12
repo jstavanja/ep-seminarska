@@ -125,6 +125,9 @@ $urls = [
     "/^item$/" => function ($method) {
         ViewHelper::redirect(BASE_URL . "store");
     },
+    "/^item\/getAllItemsJSON$/" => function ($method) {
+        ItemController::getAllItemsJSON();
+    },
     "/^item\/(\d+)$/" => function ($method, $id) {
         ItemController::index($method, $id);
     },
