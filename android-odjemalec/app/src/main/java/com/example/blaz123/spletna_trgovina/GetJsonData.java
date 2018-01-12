@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.util.Log;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -55,8 +56,18 @@ public class GetJsonData implements GetRawData.OnDownloadComplete {
                     String description = jsonItem.getString("description");
                     String price = jsonItem.getString("price");
                     String tag = jsonItem.getString("tag");
+                    Item itemObject = new Item(name,description,price,tag);
+                    mItemList.add(itemObject);
                 }
+            }catch(JSONException jsonerror){
+                jsonerror.printStackTrace();
+                status = DownloadStatus.FAILED_OR_EMPTY;
             }
+        }
+        if(mCallBack != null){
+            //processing is done
+            mCallBack.onDataAvailable(mItemList,status);
+
         }
     }
 }

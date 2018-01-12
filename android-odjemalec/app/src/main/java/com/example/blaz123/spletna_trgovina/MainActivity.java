@@ -6,15 +6,23 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity implements GetRawData.OnDownloadComplete {
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements GetJsonData.OnDataAvailable {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        GetRawData getRawData = new GetRawData(this);
-        getRawData.execute("http://10.0.2.2/index.php/registration/returnItemJson");
+        //GetRawData getRawData = new GetRawData(this);
+        //getRawData.execute("http://10.0.2.2/index.php/registration/returnItemJson");
+    }
+    @Override
+    protected void onResume(){
+        super.onResume();
+        GetJsonData getJsonData = new GetJsonData(this,"http://10.0.2.2/index.php/registration/returnItemJson");
+        getJsonData.executeOnSameThread();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
@@ -30,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements GetRawData.OnDown
         }*/
         return super.onOptionsItemSelected(item);
     }
-    public void onDownloadComplete(String data, DownloadStatus status){
+    public void onDataAvailable(List<Item> data, DownloadStatus status){
         if(status == DownloadStatus.OK){
             Log.d("Main:","data is "+data);
         }else{
