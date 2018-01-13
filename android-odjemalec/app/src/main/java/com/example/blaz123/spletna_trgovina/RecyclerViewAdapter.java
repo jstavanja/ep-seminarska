@@ -34,7 +34,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(ItemViewHolder holder, int position) {
         Item item = mItemList.get(position);
         holder.name.setText(item.getName());
-        holder.price.setText(item.getPrice());
+        holder.price.setText(item.getPrice()+"€");
         holder.tag.setText(item.getTag());
     }
 
