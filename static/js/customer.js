@@ -19,6 +19,7 @@ window.onload = () => {
   })
 
   ordersButton.addEventListener('click', () => {
+    tbodyOrders.innerHTML = "";
     defaultPage.style.display = 'none'
     accountPage.style.display = 'none'
 
