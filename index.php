@@ -177,6 +177,9 @@ $urls = [
     "/^cart$/" => function ($method) {
         CartController::index();
     },
+    "/^cart\/previewOrder$/" => function ($method) {
+        CartController::orderPreviewIndex();
+    },
     "/^cart\/completeOrder$/" => function ($method) {
         if ($method == "POST") {
             CartController::completeOrder();

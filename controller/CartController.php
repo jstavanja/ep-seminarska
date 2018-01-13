@@ -23,6 +23,14 @@ class CartController {
         ]);
     }
 
+    public static function orderPreviewIndex() {
+
+        echo ViewHelper::render("view/order-preview.php", [
+            "title" => "Store :: Predračun",
+            "items" => ItemDB::getCart()
+        ]);
+    }
+
     public static function updateCart() {
         $validationRules = [
             'do' => [
