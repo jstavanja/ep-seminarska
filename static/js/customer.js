@@ -8,7 +8,9 @@ window.onload = () => {
   const accountPage = document.querySelector('.page-account')
   const ordersPage = document.querySelector('.page-orders')
 
+  // Other
   const tbodyOrders = document.querySelector('.tbody-orders')
+  const statusSelect = document.querySelector('.status-select')
   
   // Event listeners for menu buttons
   accountButton.addEventListener('click', () => {
@@ -19,18 +21,31 @@ window.onload = () => {
   })
 
   ordersButton.addEventListener('click', () => {
-    tbodyOrders.innerHTML = "";
     defaultPage.style.display = 'none'
     accountPage.style.display = 'none'
 
     ordersPage.style.display = 'block'
+
+    statusSelectRender(2);
+
+  })
+
+  statusSelect.addEventListener('change', (e) => {
+    statusSelectRender(parseInt(e.target.value))
+  })
+
+  const statusSelectRender = (status_id) => {
+    tbodyOrders.innerHTML = "";
     axios.post('/index.php/customer/getOrders')
       .then((res) => {
-        let dataArray = res.data;
+
+        const dataArray = res.data
         
         Object.keys(dataArray).forEach(key => {
-          if (key === 0 || key === "0") return;
+
+          if (key === 0 || key === "0") return
           let dataObj = dataArray[key];
+          if (dataObj.status != status_id) return
           let stArtiklov = dataObj.items.length;
           let orderId = dataObj.order_id;
           let cena = dataObj.items.reduce((total, item) => {
@@ -40,7 +55,7 @@ window.onload = () => {
           let htmlToAdd = ""
           htmlToAdd += `
           <tr>
-            <td>${orderId}</td>`;
+            <td>${orderId}</td>`
           
           if (dataObj.status == 0) {
             htmlToAdd += '<td><i class="fa fa-times has-text-danger"></i></td>'
@@ -54,16 +69,14 @@ window.onload = () => {
             <td>${stArtiklov}</td>
             <td>${cena}$</td>
             <td>
-              <a href="/index.php/neki/${orderId}" class="button is-primary is-small"><i class="fa fa-pencil-square"></i>Obdelaj</a>
+              <a href="/index.php/customer/order/${orderId}" class="button is-primary is-small"><i class="fa fa-pencil-square"></i>Obdelaj</a>
             </td>
-          </tr>`;
+          </tr>`
 
-          tbodyOrders.innerHTML += htmlToAdd;
+          tbodyOrders.innerHTML += htmlToAdd
 
-        });
-      });
-  })
-
-
+        })
+      })
+  }
 
 }

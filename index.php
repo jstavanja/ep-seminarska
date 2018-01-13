@@ -83,6 +83,18 @@ $urls = [
         }
         else ViewHelper::error404();
     },
+    "/^customer\/order\/(\d+)$/" => function($method, $id) {
+        if ($method == "POST"){
+            CustomerController::editOrder($id);
+        }
+        CustomerController::editOrderIndex($id);
+    },
+    "/^customer\/order\/cancel\/(\d+)$/" => function($method, $id) {
+        if ($method == "POST"){
+            CustomerController::cancelOrder($id);
+        }
+        else ViewHelper::error404();
+    },
     "/^seller$/" => function ($method) {
         SellerController::index();
     },

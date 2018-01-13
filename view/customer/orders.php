@@ -1,10 +1,11 @@
 <div class="page-orders" id="#app">
   <h3 class="title is-inline">Uredi naročila</h3>
   <div class="control is-inline">
-    <div class="select">
+    <div class="select status-select">
       <select>
-        <option>Neobdelana</option>
-        <option>Obdelana</option>
+        <option value="2">Neobdelana</option>
+        <option value="1">Obdelana</option>
+        <option value="0">Stornirana</option>
       </select>
     </div>
   </div>
