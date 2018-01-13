@@ -8,6 +8,7 @@ require_once("controller/CustomerController.php");
 require_once("controller/AdministratorController.php");
 require_once("controller/CartController.php");
 require_once("controller/ItemController.php");
+require_once("auth_check.php");
 
 define("BASE_URL", $_SERVER["SCRIPT_NAME"] . "/");
 define("IMAGES_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "static/images/");
@@ -109,6 +110,30 @@ $urls = [
             SellerController::editCustomer($id);
         }
         SellerController::editCustomerIndex($id);
+    },
+    "/^seller\/getOrders$/" => function ($method) {
+        if ($method == "POST") {
+            SellerController::getOrders();
+        }
+        else ViewHelper::error404();
+    },
+    "/^seller\/order\/(\d+)$/" => function ($method, $id) {
+        if ($method == "POST") {
+            SellerController::editOrder($id);
+        }
+        SellerController::editOrderIndex($id);
+    },
+    "/^seller\/order\/cancel\/(\d+)$/" => function($method, $id) {
+        if ($method == "POST"){
+            SellerController::cancelOrder($id);
+        }
+        else ViewHelper::error404();
+    },
+    "/^seller\/order\/approve\/(\d+)$/" => function($method, $id) {
+        if ($method == "POST"){
+            SellerController::approveOrder($id);
+        }
+        else ViewHelper::error404();
     },
     "/^seller\/activateCustomer$/" => function ($method) {
         if ($method == "POST") {

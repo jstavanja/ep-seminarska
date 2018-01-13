@@ -1,8 +1,8 @@
-<section class="hero is-link is-bold">
+<section class="hero is-warning is-bold">
   <div class="hero-body">
     <div class="container">
       <h1 class="title is-pulled-left animated fadeInLeft is-inline-block">
-        Nadzorna plošča stranke
+        Nadzorna plošča prodajalca
       </h1>
       <h2 class="is-pulled-right is-inline-block animated fadeInRight">
         <span class="icon">
@@ -27,6 +27,12 @@
         </p>
       </div>
       <div class="field">
+        <span>Stranka:</span>
+        <div class="control">
+          <h3><?php echo $customer["email"]; ?></h3>
+        </div>
+      </div>
+      <div class="field">
         <span>Artikli:</span>
         <div class="content">
           <ul>
@@ -43,7 +49,10 @@
     </section>
     <footer class="modal-card-foot">
       <button class="button is-info customer-close button-modal-close">Nazaj</button>
-      <form action="/index.php/customer/order/cancel/<?php echo $order["id"];?>" method="post">
+      <form action="/index.php/seller/order/approve/<?php echo $order["id"];?>" method="post">
+        <button type="submit" class="button is-success"><i class="fa fa-minus-square"></i>Odobri naročilo</button>
+      </form>
+      <form action="/index.php/seller/order/cancel/<?php echo $order["id"];?>" method="post">
         <button type="submit" class="button is-danger"><i class="fa fa-minus-square"></i>Prekliči naročilo</button>
       </form>
     </footer>

@@ -32,7 +32,7 @@ class OrderDB extends AbstractDB {
     }
 
     public static function newOrder() {
-      return self::insert(["user_id" => intval($_SESSION["userid"]), "status_id" => 0]);
+      return self::insert(["user_id" => intval($_SESSION["userid"]), "status_id" => 2]);
     }
 
     public static function addOrderedItem($item_id, $order_id) {

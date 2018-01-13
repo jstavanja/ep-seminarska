@@ -3,6 +3,7 @@
 require_once("ViewHelper.php");
 require_once("model/SellerDB.php");
 require_once("model/ItemDB.php");
+require_once("model/OrderDB.php");
 
 class SellerController {
     
@@ -59,6 +60,26 @@ class SellerController {
                 echo ViewHelper::render("view/seller/edit-customer.php", [
                     "title" => "Store :: Urejanje stranke " . $id,
                     "customer" => UserDB::getById(["id" => $id])
+                ]);
+            }
+            else {
+                throw new InvalidArgumentException("No bueno.");
+            }
+        }
+        else {
+            throw new InvalidArgumentException("No bueno.");
+        }
+    }
+
+    public static function editOrderIndex($id) {
+        if (isset($_SESSION['userid'])) {
+            if (SellerDB::isSeller(["id" => $_SESSION['userid']])) {
+                $order = OrderDB::get(["order_id" => $id]);
+                echo ViewHelper::render("view/seller/edit-order.php", [
+                    "title" => "Store :: Urejanje naročila " . $id,
+                    "order" => $order,
+                    "customer" => UserDB::getById(["id" => $order["user_id"]]),
+                    "items" => UserDB::getItemsFromOrder(["order_id" => $id])
                 ]);
             }
             else {
@@ -224,6 +245,21 @@ class SellerController {
         }
 
         return $result;
+    }
+
+    public static function cancelOrder($id) {
+        OrderDB::update(["status_id" => 0, "id" => $id]);
+        ViewHelper::redirect(BASE_URL . "seller?orderCanceled=" . $id);
+    }
+
+    public static function approveOrder($id) {
+        OrderDB::update(["status_id" => 1, "id" => $id]);
+        ViewHelper::redirect(BASE_URL . "seller?orderCanceled=" . $id);
+    }
+
+    public static function getOrders() {
+        $order_obj = SellerDB::getOrders();
+        echo json_encode($order_obj);
     }
 }
 
