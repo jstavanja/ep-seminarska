@@ -1,10 +1,11 @@
 <div class="page-orders">
   <h3 class="title is-inline">Uredi naročila</h3>
   <div class="control is-inline">
-    <div class="select">
+    <div class="select status-select">
       <select>
-        <option>Neobdelana</option>
-        <option>Obdelana</option>
+        <option value="2">Neobdelana</option>
+        <option value="1">Obdelana</option>
+        <option value="0">Stornirana</option>
       </select>
     </div>
   </div>
@@ -19,27 +20,8 @@
         <th>Akcije</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <th>24</th>
-        <th>DamjanMurko</th>
-        <th><i class="fa fa-times has-text-danger"></i></th>
-        <th>7</th>
-        <th>80.21€</th>
-        <td>
-          <a class="button is-primary is-small"><i class="fa fa-pencil-square"></i>Obdelaj</a>
-        </td>
-      </tr>
-      <tr>
-        <th>52</th>
-        <th>BorutPahor</th>
-        <th><i class="fa fa-times has-text-danger"></i></th>
-        <th>20</th>
-        <th>103.99€</th>
-        <td>
-          <a class="button is-primary is-small"><i class="fa fa-pencil-square"></i>Obdelaj</a>
-        </td>
-      </tr>
+    <tbody class="tbody-orders">
+      
     </tbody>
   </table>
 </div>

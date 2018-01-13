@@ -14,29 +14,25 @@ class OrderDB extends AbstractDB {
   }
 
     public static function update(array $params) {
-        return parent::modify("UPDATE book SET author = :author, title = :title, "
-                        . "description = :description, price = :price, year = :year"
-                        . " WHERE id = :id", $params);
+        return parent::modify("UPDATE `order` SET status_id = :status_id WHERE id = :id", $params);
     }
 
     public static function delete(array $id) {
-        return parent::modify("DELETE FROM book WHERE id = :id", $id);
+        return parent::modify("DELETE FROM order WHERE id = :id", $id);
     }
 
     public static function get(array $id) {
-        $books = parent::query("SELECT id, author, title, description, price, year"
-                        . " FROM book"
-                        . " WHERE id = :id", $id);
+        $order = parent::query("SELECT * FROM `order` WHERE id = :order_id", $id);
         
-        if (count($books) == 1) {
-            return $books[0];
+        if (count($order) == 1) {
+            return $order[0];
         } else {
             throw new InvalidArgumentException("No such book");
         }
     }
 
     public static function newOrder() {
-      return self::insert(["user_id" => intval($_SESSION["userid"]), "status_id" => 0]);
+      return self::insert(["user_id" => intval($_SESSION["userid"]), "status_id" => 2]);
     }
 
     public static function addOrderedItem($item_id, $order_id) {

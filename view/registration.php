@@ -13,7 +13,7 @@
   <section class="section animated fadeIn">
     <div class="container">
       <div class="columns box">
-        <form action="/index.php/registration/registerUser" method="post" class="column is-two-thirds">
+        <form action="/registration/registerUser" method="post" class="column is-two-thirds">
           <?php if ($missing_parameters) : ?>
           <div class="column notification is-danger has-text-centered animated flipInX notification-login-error">
               Prosimo, pravilno izpolnite vsa polja.

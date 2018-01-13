@@ -16,7 +16,11 @@ window.onload = () => {
   // Modal
   const newCustomerModal = document.querySelector('.modal-new-customer')
   const newItemModal = document.querySelector('.modal-new-item')
-  
+
+  // Other
+  const tbodyOrders = document.querySelector('.tbody-orders')
+  const statusSelect = document.querySelector('.status-select')
+
   // Event listeners for menu buttons
   ordersButton.addEventListener('click', () => {
     defaultPage.style.display = 'none'
@@ -24,6 +28,8 @@ window.onload = () => {
     itemsPage.style.display = 'none'
 
     ordersPage.style.display = 'block'
+
+    statusSelectRender(2)
   })
 
   itemsButton.addEventListener('click', () => {
@@ -56,5 +62,58 @@ window.onload = () => {
       newCustomerModal.classList.remove('is-active')
       newItemModal.classList.remove('is-active')
     })
+  }
+
+  statusSelect.addEventListener('change', (e) => {
+    statusSelectRender(parseInt(e.target.value))
+  })
+
+  const statusSelectRender = (status_id) => {
+    tbodyOrders.innerHTML = "";
+    axios.post('/seller/getOrders')
+      .then((res) => {
+
+        const dataArray = res.data
+        
+        Object.keys(dataArray).forEach(key => {
+
+          if (key === 0 || key === "0") return
+          let dataObj = dataArray[key];
+          if (dataObj.status != status_id) return
+
+          console.log(dataObj)
+          let stArtiklov = dataObj.items.length;
+          let orderId = dataObj.order_id;
+          let customer = dataObj.customer;
+          let cena = dataObj.items.reduce((total, item) => {
+            return total + parseInt(item[0].price)
+          }, 0)
+          
+          let htmlToAdd = ""
+          htmlToAdd += `
+          <tr>
+            <td>${orderId}</td>
+            <td>${customer}</td>`
+          
+          if (dataObj.status == 0) {
+            htmlToAdd += '<td><i class="fa fa-times has-text-danger"></i></td>'
+          } else if (dataObj.status == 1) {
+            htmlToAdd += '<td><i class="fa fa-check has-text-success"></i></td>'
+          } else if (dataObj.status == 2) {
+            htmlToAdd += '<td><i class="fa fa-spinner has-text-warning"></i></td>'
+          }
+
+          htmlToAdd += `
+            <td>${stArtiklov}</td>
+            <td>${cena}$</td>
+            <td>
+              <a href="/seller/order/${orderId}" class="button is-primary is-small"><i class="fa fa-pencil-square"></i>Obdelaj</a>
+            </td>
+          </tr>`
+
+          tbodyOrders.innerHTML += htmlToAdd
+
+        })
+      })
   }
 }

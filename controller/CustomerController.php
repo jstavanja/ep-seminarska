@@ -1,6 +1,8 @@
 <?php
 
 require_once("model/StoreDB.php");
+require_once("model/OrderDB.php");
+require_once("model/UserDB.php");
 require_once("ViewHelper.php");
 
 class CustomerController {
@@ -17,6 +19,15 @@ class CustomerController {
         
         echo ViewHelper::render("view/customer.php", [
             "title" => "Store :: Nadzorna plošča uporabnika"
+        ]);
+    }
+
+    public static function editOrderIndex($id) {
+        
+        echo ViewHelper::render("view/customer/edit-order.php", [
+            "title" => "Store :: Urejanje naročila",
+            "order" => OrderDB::get(["order_id" => $id]),
+            "items" => UserDB::getItemsFromOrder(["order_id" => $id])
         ]);
     }
 
@@ -69,6 +80,11 @@ class CustomerController {
         }
 
         return $result;
+    }
+
+    public static function cancelOrder($id) {
+        OrderDB::update(["status_id" => 0, "id" => $id]);
+        echo ViewHelper::redirect(BASE_URL . "customer?orderCanceled=" . $id);
     }
 
     public static function getOrders() {

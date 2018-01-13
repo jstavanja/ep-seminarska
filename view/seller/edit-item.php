@@ -15,7 +15,7 @@
 </section>
 
 <div class="container">
-<form class="modal-card" action="/index.php/seller/editItem/<?php echo $item["id"];?>" method="POST">
+<form class="modal-card" action="/seller/editItem/<?php echo $item["id"];?>" method="POST">
     <header class="modal-card-head">
       <p class="modal-card-title">Uredi artikel</p>
       <button class="delete item-close button-modal-close" aria-label="close"></button>
