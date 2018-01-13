@@ -26,7 +26,7 @@
               <th>Akcije</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="items-body">
             <?php foreach($items as $item): ?>
             <tr>
               <th><?php echo $item["id"]; ?></th>
@@ -56,7 +56,7 @@
       </div>
     </div>
     <footer class="card-footer">
-      <a href="#" class="card-footer-item is-success">Zaključi nakup</a>
+      <a href="#" class="card-footer-item is-success btn-complete-order" >Zaključi nakup</a>
       <a href="#" class="card-footer-item">Skupaj: 
       <?php 
       $total_price = 0;
@@ -73,3 +73,6 @@
 <form action="/index.php/cart/emptyCart" id="empty-cart-form" method="post">
   <input type="hidden" name="do" value="purge_cart">
 </form>
+
+<script src="/static/js/cart.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.min.js" type="text/javascript"></script>

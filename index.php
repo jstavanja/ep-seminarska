@@ -41,12 +41,6 @@ $urls = [
         }
         else ViewHelper::error404();
     },
-    "/^customer\/editOwnData$/" => function($method) {
-        if ($method == "POST"){
-            CustomerController::editOwnData();
-        }
-        else ViewHelper::error404();
-    },
     "/^administrator$/" => function ($method) {
         AdministratorController::index();
     },
@@ -76,6 +70,18 @@ $urls = [
     },
     "/^customer$/" => function ($method) {
         CustomerController::index();
+    },
+    "/^customer\/editOwnData$/" => function($method) {
+        if ($method == "POST"){
+            CustomerController::editOwnData();
+        }
+        else ViewHelper::error404();
+    },
+    "/^customer\/getOrders$/" => function($method) {
+        if ($method == "POST"){
+            CustomerController::getOrders();
+        }
+        else ViewHelper::error404();
     },
     "/^seller$/" => function ($method) {
         SellerController::index();
@@ -133,6 +139,12 @@ $urls = [
     },
     "/^cart$/" => function ($method) {
         CartController::index();
+    },
+    "/^cart\/completeOrder$/" => function ($method) {
+        if ($method == "POST") {
+            CartController::completeOrder();
+        }
+        else ViewHelper::error404();
     },
     "/^cart\/addToCart$/" => function ($method) {
         if ($method == "POST") {

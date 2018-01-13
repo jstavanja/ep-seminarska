@@ -5,3 +5,8 @@
 .submit-order {
   margin-left: 10px;
 }
+
+.order-success {
+  font-size: 32px;
+  color: green;
+}

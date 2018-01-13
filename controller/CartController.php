@@ -2,6 +2,7 @@
 
 require_once("model/StoreDB.php");
 require_once("model/UserDB.php");
+require_once("model/OrderDB.php");
 require_once("ViewHelper.php");
 
 class CartController {
@@ -72,5 +73,16 @@ class CartController {
                 break;
         }
         ViewHelper::redirect(BASE_URL . "cart");
+    }
+
+    public static function completeOrder() {
+        $items = array_keys($_SESSION["cart"]);
+        $order_id = OrderDB::newOrder();
+        foreach ($items as $item_id) {
+            OrderDB::insertOrderedItem(["item_id" => $item_id, "order_id" => $order_id]);
+        }
+
+        unset($_SESSION["cart"]);
+        echo json_encode(["success" => true, "new_location" => "store"]);
     }
 }
