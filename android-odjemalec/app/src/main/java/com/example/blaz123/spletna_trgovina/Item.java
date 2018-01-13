@@ -1,10 +1,15 @@
 package com.example.blaz123.spletna_trgovina;
 
+import java.io.Serializable;
+
 /**
  * Created by blaz123 on 11.1.2018.
  */
 
-public class Item {
+public class Item implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     private String mName;
     private String mDescription;
     private String mPrice;
@@ -16,7 +21,6 @@ public class Item {
         this.mPrice = mPrice;
         this.mTag = mTag;
     }
-
     public String getName(){
         return mName;
     }
