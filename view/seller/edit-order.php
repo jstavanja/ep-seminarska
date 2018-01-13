@@ -58,4 +58,4 @@
   </div>
 </div>
 
-<script src="/static/js/custom-edit-order.js" type="text/javascript"></script>
+<script src="/static/js/seller-edit-order.js" type="text/javascript"></script>
