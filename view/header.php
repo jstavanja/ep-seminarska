@@ -75,40 +75,40 @@
       <nav class="navbar is-dark">
         <div class="navbar-menu">
           <div class="navbar-start">
-            <a class="navbar-item" href="/kategorija.html">
+            <a class="navbar-item" href="<?php echo BASE_URL . "store/tshirts"?>">
               Kratke majice
             </a>
-            <a class="navbar-item" href="/kategorija.html">
+            <a class="navbar-item" href="<?php echo BASE_URL . "store/shirts"?>">
               Srajce
             </a>
-            <a class="navbar-item" href="/kategorija.html">
+            <a class="navbar-item" href="<?php echo BASE_URL . "store/sweaters"?>">
               Dolge majice in puloverji
             </a>
-            <a class="navbar-item" href="/kategorija.html">
+            <a class="navbar-item" href="<?php echo BASE_URL . "store/eveningwear"?>">
               Suknjiči in obleke
             </a>
-            <a class="navbar-item" href="/kategorija.html">
+            <a class="navbar-item" href="<?php echo BASE_URL . "store/outerwear"?>">
               Jakne in plašči
             </a>
-            <a class="navbar-item" href="/kategorija.html">
+            <a class="navbar-item" href="<?php echo BASE_URL . "store/shorts"?>">
               Kratke hlače
             </a>
-            <a class="navbar-item" href="/kategorija.html">
+            <a class="navbar-item" href="<?php echo BASE_URL . "store/pants"?>">
               Hlače
             </a>
-            <a class="navbar-item" href="/kategorija.html">
+            <a class="navbar-item" href="<?php echo BASE_URL . "store/jeans"?>">
               Kavbojke
             </a>
-            <a class="navbar-item" href="/kategorija.html">
+            <a class="navbar-item" href="<?php echo BASE_URL . "store/swimwear"?>">
               Kopalke
             </a>
-            <a class="navbar-item" href="/kategorija.html">
+            <a class="navbar-item" href="<?php echo BASE_URL . "store/underwear"?>">
               Spodnje perilo
             </a>
-            <a class="navbar-item" href="/kategorija.html">
+            <a class="navbar-item" href="<?php echo BASE_URL . "store/shoes"?>">
               Čevlji
             </a>
-            <a class="navbar-item" href="/kategorija.html">
+            <a class="navbar-item" href="<?php echo BASE_URL . "store/accessories"?>">
               Dodatki
             </a>
           </div>
