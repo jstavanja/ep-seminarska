@@ -19,8 +19,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:parentActivityName=".MainActivity"
             android:name=".ItemDetailActivity"
-            android:label="@string/title_activity_item_detail"
+            android:label="Podrobnosti"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
