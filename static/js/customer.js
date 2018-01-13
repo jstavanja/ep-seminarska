@@ -26,7 +26,7 @@ window.onload = () => {
     axios.post('/index.php/customer/getOrders')
       .then((res) => {
         let dataArray = res.data;
-        console.log(dataArray)
+        
         Object.keys(dataArray).forEach(key => {
           if (key === 0 || key === "0") return;
           let dataObj = dataArray[key];
@@ -35,7 +35,7 @@ window.onload = () => {
           let cena = dataObj.items.reduce((total, item) => {
             return total + parseInt(item[0].price)
           }, 0)
-          console.log(orderId, cena, stArtiklov)
+          
           let htmlToAdd = ""
           htmlToAdd += `
           <tr>
@@ -57,7 +57,7 @@ window.onload = () => {
             </td>
           </tr>`;
 
-          tbodyOrders.innerHTML = htmlToAdd;
+          tbodyOrders.innerHTML += htmlToAdd;
 
         });
       });
