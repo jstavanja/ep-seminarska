@@ -34,7 +34,7 @@
               <th><?php echo $item["tag"]; ?></th>
               <th><?php echo $item["price"]; ?>€</th>
               <th>
-                <form class="is-inline" action="/cart/updateCart" method="post">
+                <form class="is-inline" action="/index.php/cart/updateCart" method="post">
                   <input type="hidden" name="do" value="update_cart">
                   <input type="hidden" name="id" value="<?php echo $item["id"]; ?>">
                   <input class="is-inline" type="number" value="<?php echo $item["amount"]; ?>" name="amount">
@@ -42,7 +42,7 @@
                 </form>
               </th>
               <td>
-                <form style="display: none;" action="/cart/updateCart" id="delete-item-form" method="post">
+                <form style="display: none;" action="/index.php/cart/updateCart" id="delete-item-form" method="post">
                   <input type="hidden" name="do" value="update_cart">
                   <input type="hidden" name="id" value="<?php echo $item["id"]; ?>">
                   <input type="number" value="0" name="amount">
@@ -77,7 +77,7 @@
   </div>
 </div>
 
-<form action="/cart/emptyCart" id="empty-cart-form" method="post">
+<form action="/index.php/cart/emptyCart" id="empty-cart-form" method="post">
   <input type="hidden" name="do" value="purge_cart">
 </form>
 

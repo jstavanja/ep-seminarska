@@ -22,18 +22,18 @@
           </div>
           <div class="navbar-end">
             <div class="navbar-item">
-              <a class="navbar-item" href="/cart">
+              <a class="navbar-item" href="/index.php/cart">
                 Košarica
               </a>
               <?php if (isset($_SESSION["user"])) :?>
-              <a class="navbar-item" href="/logout.php">
+              <a class="navbar-item" href="/index.php/logout.php">
                 Odjava
               </a>
               <?php else: ?>
-              <a class="navbar-item" href="/login">
+              <a class="navbar-item" href="/index.php/login">
                 Prijava
               </a>
-              <a class="navbar-item" href="/registration">
+              <a class="navbar-item" href="/index.php/registration">
                 Registracija
               </a>
               <?php endif ?>
@@ -48,17 +48,17 @@
                 </a>
                 <?php if (isset($_SESSION["user"])) :?>
                 <div class="navbar-dropdown is-boxed">
-                  <a class="navbar-item" href="/customer">
+                  <a class="navbar-item" href="/index.php/customer">
                     Nadzorna plošča
                   </a>
                   <hr class="navbar-divider">
                   <?php if (AdministratorDB::isAdmin(["id" => $_SESSION['userid']])): ?>
-                  <a class="navbar-item" href="/administrator">
+                  <a class="navbar-item" href="/index.php/administrator">
                     Administrator
                   </a>
                   <?php endif ?>
                   <?php if (SellerDB::isSeller(["id" => $_SESSION['userid']])): ?>
-                  <a class="navbar-item" href="/seller">
+                  <a class="navbar-item" href="/index.php/seller">
                     Prodajalec
                   </a>
                   <?php endif ?>

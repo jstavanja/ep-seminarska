@@ -1,7 +1,7 @@
 <div class="modal modal-new-item">
   <div class="modal-background"></div>
   <div class="modal-content">
-    <form class="modal-card" action="/seller/addItem" method="POST">
+    <form class="modal-card" action="/index.php/seller/addItem" method="POST">
       <header class="modal-card-head">
         <p class="modal-card-title">Dodaj artikel</p>
         <button class="delete button-modal-close" aria-label="close"></button>

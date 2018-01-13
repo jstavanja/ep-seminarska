@@ -1,6 +1,6 @@
 <div class="modal modal-new-seller">
   <div class="modal-background"></div>
-  <form class="modal-card" action="/administrator/addSeller" method="POST">
+  <form class="modal-card" action="/index.php/administrator/addSeller" method="POST">
     <header class="modal-card-head">
       <p class="modal-card-title">Dodaj prodajalca</p>
       <button class="delete button-modal-close" aria-label="close"></button>
