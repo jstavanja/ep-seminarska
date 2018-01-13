@@ -73,6 +73,7 @@ class UserDB extends AbstractDB {
         $item_data = [];
         foreach($items as $item) {
             $curr_item_data = parent::query('SELECT * FROM `item` WHERE id = :item_id', ["item_id" => $item["item_id"]]);
+            $curr_item_data["amount"] = $item["amount"];
             array_push($item_data, $curr_item_data);
         }
         return $item_data;

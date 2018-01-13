@@ -9,8 +9,8 @@ class OrderDB extends AbstractDB {
     }
 
     public static function insertOrderedItem(array $params) {
-      return parent::modify("INSERT INTO ordered_items (item_id, order_id) "
-                            . " VALUES (:item_id, :order_id)", $params);
+      return parent::modify("INSERT INTO ordered_items (item_id, order_id, amount) "
+                            . " VALUES (:item_id, :order_id, :amount)", $params);
   }
 
     public static function update(array $params) {

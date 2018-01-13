@@ -81,12 +81,11 @@ window.onload = () => {
           let dataObj = dataArray[key];
           if (dataObj.status != status_id) return
 
-          console.log(dataObj)
           let stArtiklov = dataObj.items.length;
           let orderId = dataObj.order_id;
           let customer = dataObj.customer;
           let cena = dataObj.items.reduce((total, item) => {
-            return total + parseInt(item[0].price)
+            return total + (parseInt(item[0].price) * parseInt(item.amount))
           }, 0)
           
           let htmlToAdd = ""

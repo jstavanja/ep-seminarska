@@ -29,6 +29,7 @@
               <th><?php echo $item["name"]; ?></th>
               <th><?php echo $item["tag"]; ?></th>
               <th><?php echo $item["price"]; ?>€</th>
+              <th><?php echo $_SESSION["cart"][$item["id"]]; ?></th>
             </tr>
             <?php endforeach; ?>
           </tbody>

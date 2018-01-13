@@ -87,7 +87,8 @@ class CartController {
         $items = array_keys($_SESSION["cart"]);
         $order_id = OrderDB::newOrder();
         foreach ($items as $item_id) {
-            OrderDB::insertOrderedItem(["item_id" => $item_id, "order_id" => $order_id]);
+            $item_amount = $_SESSION["cart"][$item_id];
+            OrderDB::insertOrderedItem(["item_id" => $item_id, "order_id" => $order_id, "amount" => $item_amount]);
         }
 
         unset($_SESSION["cart"]);

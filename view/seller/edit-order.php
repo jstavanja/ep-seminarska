@@ -17,7 +17,7 @@
 <div class="container">
 <div class="modal-card">
     <header class="modal-card-head">
-      <p class="modal-card-title">Uredi naročilo</p>
+      <p class="modal-card-title">Obdelaj naročilo</p>
     </header>
     <section class="modal-card-body">
       <div class="field">
@@ -38,9 +38,8 @@
           <ul>
             <?php foreach ($items as $item): ?>
               <li>
-              <?php foreach ($item as $i): ?>
-                <?php echo($item[0]["name"]); ?>
-              <?php endforeach; ?>
+                <span>Izdelek: </span><?php echo($item[0]["name"]); ?> |
+                <span>Število: </span><b><?php echo($item["amount"]) ?></b>
               </li>
             <?php endforeach; ?>
           </ul>

@@ -75,13 +75,13 @@
       <nav class="navbar is-dark">
         <div class="navbar-menu">
           <div class="navbar-start">
-            <a class="navbar-item" href="<?php echo BASE_URL . "store/tshirts"?>">
+            <a class="navbar-item" href="<?php echo BASE_URL . "store/tshirt"?>">
               Kratke majice
             </a>
-            <a class="navbar-item" href="<?php echo BASE_URL . "store/shirts"?>">
+            <a class="navbar-item" href="<?php echo BASE_URL . "store/shirt"?>">
               Srajce
             </a>
-            <a class="navbar-item" href="<?php echo BASE_URL . "store/sweaters"?>">
+            <a class="navbar-item" href="<?php echo BASE_URL . "store/sweater"?>">
               Dolge majice in puloverji
             </a>
             <a class="navbar-item" href="<?php echo BASE_URL . "store/eveningwear"?>">
@@ -108,7 +108,7 @@
             <a class="navbar-item" href="<?php echo BASE_URL . "store/shoes"?>">
               Čevlji
             </a>
-            <a class="navbar-item" href="<?php echo BASE_URL . "store/accessories"?>">
+            <a class="navbar-item" href="<?php echo BASE_URL . "store/accessory"?>">
               Dodatki
             </a>
           </div>
