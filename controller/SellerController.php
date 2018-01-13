@@ -23,6 +23,7 @@ class SellerController {
                 echo ViewHelper::render("view/seller.php", [
                     "title" => "Store :: Nadzorna plošča prodajalca",
                     "customers" => SellerDB::getCustomers(),
+                    "ordernum" => OrderDB::getNumUnprocessed(),
                     "items" => ItemDB::getAll()
                 ]);
             }
@@ -102,6 +103,9 @@ class SellerController {
             "name" => [
                 'filter' => FILTER_SANITIZE_STRING
             ],
+            "surname" => [
+                'filter' => FILTER_SANITIZE_STRING
+            ],
             "password" => [
 
             ],
@@ -113,6 +117,9 @@ class SellerController {
             ],
             "postcode" => [
                 'filter' => FILTER_SANITIZE_STRING
+            ],
+            "phone" => [
+                'filter' => FILTER_SANITIZE_NUMBER_INT
             ],
         ];
 
@@ -167,6 +174,9 @@ class SellerController {
             "name" => [
                 'filter' => FILTER_SANITIZE_STRING
             ],
+            "surname" => [
+                'filter' => FILTER_SANITIZE_STRING
+            ],
             "password" => [
 
             ],
@@ -179,6 +189,9 @@ class SellerController {
             "postcode" => [
                 'filter' => FILTER_SANITIZE_STRING
             ],
+            "phone" => [
+                'filter' => FILTER_SANITIZE_NUMBER_INT
+            ],
             "id" => [
                 'filter' => FILTER_SANITIZE_INT
             ]
@@ -188,6 +201,7 @@ class SellerController {
 
         if (self::checkValues($data)) {
             unset($data["password-repeat"]);
+            $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
             $id = UserDB::update($data);
             echo ViewHelper::redirect(BASE_URL . "seller");
         } else {

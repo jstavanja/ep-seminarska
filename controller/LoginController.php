@@ -40,6 +40,11 @@ class LoginController {
 
         $data = filter_input_array(INPUT_POST, $rules);
         $user_data = UserDB::get(["email" => $data['email']]);
+        if (intval($user_data["status"]) != 1) {
+            echo ViewHelper::redirect(BASE_URL . "login?error=account_deactivated");
+            unset($_SESSION);
+            exit();
+        }
         if (password_verify($data['password'], $user_data['password'])) {
             $_SESSION["userid"] = $user_data['id'];
             $_SESSION["username"] = $user_data['username'];

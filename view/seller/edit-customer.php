@@ -59,9 +59,18 @@
       </p>
     </div>
     <div class="field">
-      <span>Pravo ime:</span>
+      <span>Ime:</span>
       <p class="control has-icons-left">
         <input name="name" class="input" type="text" value="<?php echo $customer["name"];?>" placeholder="Pravo ime">
+        <span class="icon is-small is-left">
+          <i class="fa fa-user"></i>
+        </span>
+      </p>
+    </div>
+    <div class="field">
+      <span>Priimek:</span>
+      <p class="control has-icons-left">
+        <input name="surname" class="input" type="text" value="<?php echo $customer["surname"];?>" placeholder="Priimek">
         <span class="icon is-small is-left">
           <i class="fa fa-user"></i>
         </span>
@@ -82,6 +91,15 @@
         <input name="postcode" class="input" value="<?php echo $customer["postcode"];?>" type="text" placeholder="Pošta">
         <span class="icon is-small is-left">
           <i class="fa fa-user"></i>
+        </span>
+      </p>
+    </div>
+    <div class="field">
+      <span>Telefonska številka:</span>
+      <p class="control has-icons-left">
+        <input name="phone" class="input" value="<?php echo $customer["phone"];?>" type="text" placeholder="Telefonska številka">
+        <span class="icon is-small is-left">
+          <i class="fa fa-phone"></i>
         </span>
       </p>
     </div>

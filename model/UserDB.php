@@ -5,13 +5,13 @@ require_once 'model/AbstractDB.php';
 class UserDB extends AbstractDB {
 
     public static function insert(array $params) {
-      return parent::modify("INSERT INTO user (username, email, name, password, address, postcode, role, status) "
-                      . " VALUES (:username, :email, :name, :password, :address, :postcode, :role, :status)", $params);
+      return parent::modify("INSERT INTO user (username, email, name, surname, password, address, postcode, phone, role, status) "
+                      . " VALUES (:username, :email, :name, :surname, :password, :address, :postcode, :phone, :role, :status)", $params);
     }
 
     public static function update(array $params) {
         return parent::modify("UPDATE user SET username = :username, email = :email, "
-                        . "name = :name, password = :password, address = :address, postcode = :postcode"
+                        . "name = :name, surname = :surname, password = :password, address = :address, postcode = :postcode, phone = :phone"
                         . " WHERE id = :id", $params);
     }
 

@@ -43,9 +43,18 @@
           </p>
         </div>
       <div class="field">
-        <span>Pravo ime:</span>
+        <span>Ime:</span>
         <p class="control has-icons-left">
           <input name="name" class="input" type="text" placeholder="Pravo ime">
+          <span class="icon is-small is-left">
+            <i class="fa fa-user"></i>
+          </span>
+        </p>
+      </div>
+      <div class="field">
+        <span>Priimek:</span>
+        <p class="control has-icons-left">
+          <input name="surname" class="input" type="text" placeholder="Priimek">
           <span class="icon is-small is-left">
             <i class="fa fa-user"></i>
           </span>
@@ -69,7 +78,15 @@
           </span>
         </p>
       </div>
-
+      <div class="field">
+        <span>Telefonska številka:</span>
+        <p class="control has-icons-left">
+          <input name="phone" class="input" type="text" placeholder="Telefonska številka">
+          <span class="icon is-small is-left">
+            <i class="fa fa-phone"></i>
+          </span>
+        </p>
+      </div>
     </section>
     <footer class="modal-card-foot">
       <button type="submit" class="button is-success">Shrani</button>

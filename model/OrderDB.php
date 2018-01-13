@@ -44,6 +44,11 @@ class OrderDB extends AbstractDB {
                         . " FROM item"
                         . " ORDER BY id ASC");
     }
+
+    public static function getNumUnprocessed() {
+        $order = parent::query("SELECT * FROM `order` WHERE status_id = 2");
+        return count($order);
+    }
     
     public static function getFeatured() {
         return [];
