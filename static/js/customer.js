@@ -36,7 +36,7 @@ window.onload = () => {
 
   const statusSelectRender = (status_id) => {
     tbodyOrders.innerHTML = "";
-    axios.post('/index.php/customer/getOrders')
+    axios.post('/customer/getOrders')
       .then((res) => {
 
         const dataArray = res.data
@@ -69,7 +69,7 @@ window.onload = () => {
             <td>${stArtiklov}</td>
             <td>${cena}$</td>
             <td>
-              <a href="/index.php/customer/order/${orderId}" class="button is-primary is-small"><i class="fa fa-pencil-square"></i>Obdelaj</a>
+              <a href="/customer/order/${orderId}" class="button is-primary is-small"><i class="fa fa-pencil-square"></i>Obdelaj</a>
             </td>
           </tr>`
 

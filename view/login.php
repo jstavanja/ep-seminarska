@@ -11,7 +11,7 @@
     </div>
   </section>
   <section class="section">
-    <form class="container" action="/index.php/login/logUserIn" method="POST">
+    <form class="container" action="/login/logUserIn" method="POST">
       <div class="columns animated fadeIn">
         <div class="column is-one-third"></div>
         <div class="column is-one-third">
@@ -43,7 +43,7 @@
               </p>
             </div>
             <div class="ustvari-nov-racun has-text-centered">
-              <a href="/index.php/registration" class="is-size-7">Ustvari nov račun.</a>
+              <a href="/registration" class="is-size-7">Ustvari nov račun.</a>
             </div>
           </div>
           <?php if ($displayError) : ?>

@@ -22,7 +22,7 @@
           </div>
           <div class="navbar-end">
             <div class="navbar-item">
-              <a class="navbar-item" href="/index.php/cart">
+              <a class="navbar-item" href="/cart">
                 Košarica
               </a>
               <?php if (isset($_SESSION["user"])) :?>
@@ -30,10 +30,10 @@
                 Odjava
               </a>
               <?php else: ?>
-              <a class="navbar-item" href="/index.php/login">
+              <a class="navbar-item" href="/login">
                 Prijava
               </a>
-              <a class="navbar-item" href="/index.php/registration">
+              <a class="navbar-item" href="/registration">
                 Registracija
               </a>
               <?php endif ?>
@@ -48,17 +48,17 @@
                 </a>
                 <?php if (isset($_SESSION["user"])) :?>
                 <div class="navbar-dropdown is-boxed">
-                  <a class="navbar-item" href="/index.php/customer">
+                  <a class="navbar-item" href="/customer">
                     Nadzorna plošča
                   </a>
                   <hr class="navbar-divider">
                   <?php if (AdministratorDB::isAdmin(["id" => $_SESSION['userid']])): ?>
-                  <a class="navbar-item" href="/index.php/administrator">
+                  <a class="navbar-item" href="/administrator">
                     Administrator
                   </a>
                   <?php endif ?>
                   <?php if (SellerDB::isSeller(["id" => $_SESSION['userid']])): ?>
-                  <a class="navbar-item" href="/index.php/seller">
+                  <a class="navbar-item" href="/seller">
                     Prodajalec
                   </a>
                   <?php endif ?>

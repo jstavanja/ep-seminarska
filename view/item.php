@@ -38,7 +38,7 @@
   </div>
 </div>
 
-<form id="cart-add-form" action="/index.php/cart/addToCart" method="post" style="display:none;">
+<form id="cart-add-form" action="/cart/addToCart" method="post" style="display:none;">
   <input type="hidden" name="id" value="<?php echo $item["id"];?>">
   <input type="hidden" name="do" value="add_into_cart">
 </form>

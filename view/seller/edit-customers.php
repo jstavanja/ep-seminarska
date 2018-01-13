@@ -13,15 +13,15 @@
       <tr>
         <th width="70%"><?php echo $customer['email'] ?> <?php echo $customer['status'] ? "(Aktiviran)" : "(Deaktiviran)" ?></th>
         <td width="30%">
-          <form id="customer-activate-form-<?php echo $customer["id"]; ?>" style="display: none;" action="/index.php/seller/activateCustomer" method="post">
+          <form id="customer-activate-form-<?php echo $customer["id"]; ?>" style="display: none;" action="/seller/activateCustomer" method="post">
             <input type="hidden" name="id" value="<?php echo $customer["id"]; ?>">
           </form>
-          <form id="customer-deactivate-form-<?php echo $customer["id"]; ?>" style="display: none;" action="/index.php/seller/deactivateCustomer" method="post">
+          <form id="customer-deactivate-form-<?php echo $customer["id"]; ?>" style="display: none;" action="/seller/deactivateCustomer" method="post">
             <input type="hidden" name="id" value="<?php echo $customer["id"]; ?>">
           </form>
           <a class="button is-primary is-small" onclick="document.getElementById('customer-activate-form-<?php echo $customer["id"]; ?>').submit()"><i class="fa fa-check-square"></i>Aktiviraj</a>
           <a class="button is-danger is-small" onclick="document.getElementById('customer-deactivate-form-<?php echo $customer["id"]; ?>').submit()"><i class="fa fa-minus-square"></i>Deaktiviraj</a>
-          <a href="/index.php/seller/editCustomer/<?php echo $customer["id"];?>" class="button is-info is-small"><i class="fa fa-pencil-square"></i>Uredi</a>
+          <a href="/seller/editCustomer/<?php echo $customer["id"];?>" class="button is-info is-small"><i class="fa fa-pencil-square"></i>Uredi</a>
         </td>
       </tr>
     <?php endforeach; ?>

@@ -4,13 +4,13 @@ $current_page = $_SERVER['REQUEST_URI'];
 
 if (!isset($_SESSION["user"])) {
   switch ($current_page) {
-    case '/index.php/administrator':
+    case '/administrator':
       ViewHelper::redirect(BASE_URL . "store");
       break;
-    case '/index.php/customer':
+    case '/customer':
       ViewHelper::redirect(BASE_URL . "store");
       break;
-    case '/index.php/seller':
+    case '/seller':
       ViewHelper::redirect(BASE_URL . "store");
       break;
     default:
@@ -21,12 +21,12 @@ if (!isset($_SESSION["user"])) {
 
 if (isset($_SESSION["user"])) {
   switch ($current_page) {
-    case '/index.php/administrator':
+    case '/administrator':
       if (!(AdministratorDB::isAdmin(["id" => $_SESSION['userid']]))) {
         ViewHelper::redirect(BASE_URL . "store");
       }
       break;
-    case '/index.php/seller':
+    case '/seller':
       if (!(SellerDB::isSeller(["id" => $_SESSION['userid']]))) {
         ViewHelper::redirect(BASE_URL . "store");
       }
