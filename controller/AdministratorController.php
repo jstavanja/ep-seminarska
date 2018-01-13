@@ -62,6 +62,9 @@ class AdministratorController {
             "name" => [
                 'filter' => FILTER_SANITIZE_STRING
             ],
+            "surname" => [
+                'filter' => FILTER_SANITIZE_STRING
+            ],
             "password" => [
 
             ],
@@ -74,6 +77,9 @@ class AdministratorController {
             "postcode" => [
                 'filter' => FILTER_SANITIZE_STRING
             ],
+            "phone" => [
+                'filter' => FILTER_SANITIZE_NUMBER_INT
+            ]
         ];
 
         $data = filter_input_array(INPUT_POST, $rules);
@@ -84,7 +90,7 @@ class AdministratorController {
             $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
             unset($data['password-repeat']);
             $id = UserDB::insert($data);
-            $seller_data = ["user_id" => $id, "activated" => 1, "certifikat" => "NULL"];
+            $seller_data = ["user_id" => $id, "activated" => 1, "certifikat" => rand(1, 1000)];
             SellerDB::insert($seller_data);
             echo ViewHelper::redirect(BASE_URL . "administrator?registered=true");
         } else {
@@ -103,6 +109,9 @@ class AdministratorController {
             "name" => [
                 'filter' => FILTER_SANITIZE_STRING
             ],
+            "surname" => [
+                'filter' => FILTER_SANITIZE_STRING
+            ],
             "password" => [
 
             ],
@@ -115,6 +124,9 @@ class AdministratorController {
             "postcode" => [
                 'filter' => FILTER_SANITIZE_STRING
             ],
+            "phone" => [
+                'filter' => FILTER_SANITIZE_NUMBER_INT
+            ],
             "id" => [
                 'filter' => FILTER_SANITIZE_INT
             ]
@@ -123,6 +135,7 @@ class AdministratorController {
         $data = filter_input_array(INPUT_POST, $rules);
 
         if (self::checkValues($data)) {
+            $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
             unset($data["password-repeat"]);
             $id = UserDB::update($data);
             echo ViewHelper::redirect(BASE_URL . "administrator");

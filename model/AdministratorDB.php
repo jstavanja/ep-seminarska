@@ -5,8 +5,8 @@ require_once 'model/AbstractDB.php';
 class AdministratorDB extends AbstractDB {
 
     public static function insert(array $params) {
-      return parent::modify("INSERT INTO user (username, email, name, password, address, postcode, role, status) "
-                      . " VALUES (:username, :email, :name, :password, :address, :postcode, :role, :status)", $params);
+      return parent::modify("INSERT INTO user (username, email, name, surname, password, address, postcode, phone, role, status) "
+                      . " VALUES (:username, :email, :name, :surname, :password, :address, :postcode, :phone, :role, :status)", $params);
     }
 
     public static function update(array $params) {

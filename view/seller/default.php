@@ -6,7 +6,7 @@
         <button class="delete" aria-label="delete"></button>
       </div>
       <div class="message-body">
-        Imate <b>69</b> neobdelanih naročil.
+        Imate <b><?php echo $ordernum;?></b> neobdelanih naročil.
       </div>
     </article>
 </div>

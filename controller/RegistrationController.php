@@ -31,6 +31,9 @@ class RegistrationController {
             "name" => [
                 'filter' => FILTER_SANITIZE_STRING
             ],
+            "surname" => [
+                'filter' => FILTER_SANITIZE_STRING
+            ],
             "password" => [
 
             ],
@@ -43,14 +46,15 @@ class RegistrationController {
             "postcode" => [
                 'filter' => FILTER_SANITIZE_STRING
             ],
+            "phone" => [
+                'filter' => FILTER_SANITIZE_NUMBER_INT
+            ],
         ];
 
 
         $data = filter_input_array(INPUT_POST, $rules);
         $data['role'] = "user";
         $data['status'] = 1;
-
-        echo $data;
 
         if (self::checkValues($data)) {
             $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
