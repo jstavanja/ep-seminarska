@@ -2,6 +2,7 @@
 
 require_once("model/UserDB.php");
 require_once("ViewHelper.php");
+require_once('vendor/Recaptcha.php');
 
 class RegistrationController {
     
@@ -56,7 +57,20 @@ class RegistrationController {
         $data['role'] = "user";
         $data['status'] = 1;
 
-        if (self::checkValues($data)) {
+        $captchaCorrect = false;
+
+        $recaptcha = $_POST['g-recaptcha-response'];
+
+        $object = new Recaptcha();
+        $response = $object->verifyResponse($recaptcha);
+
+        if(isset($response['success']) and $response['success'] != true) {
+            echo ViewHelper::redirect(BASE_URL . "registration?captchaFail=true"); exit();
+        }else {
+            $captchaCorrect = true;
+        }
+
+        if (self::checkValues($data) && $captchaCorrect) {
             $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
             unset($data['password-repeat']);
             $id = UserDB::insert($data);

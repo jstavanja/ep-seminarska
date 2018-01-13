@@ -101,6 +101,11 @@
             </p>
           </div>
           <div class="field">
+            <div class="control has-text-centered">
+              <div class="g-recaptcha" data-sitekey="6LeknUAUAAAAAEdmQLSzK1pu8X0seAmRJCDz757T"></div>
+            </div>
+          </div>
+          <div class="field">
             <p class="control has-text-centered	">
               <button class="button is-success" type="submit">
                 Registriraj se
