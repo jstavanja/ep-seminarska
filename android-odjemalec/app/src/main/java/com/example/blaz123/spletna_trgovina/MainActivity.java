@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements GetJsonData.OnDat
     @Override
     protected void onResume(){
         super.onResume();
-        GetJsonData getJsonData = new GetJsonData(this,"http://10.0.2.2/index.php/item/getAllItemsJSON");
+        GetJsonData getJsonData = new GetJsonData(this,"http://10.0.2.2/item/getAllItemsJSON");
         //getJsonData.executeOnSameThread();
         getJsonData.execute();
     }
