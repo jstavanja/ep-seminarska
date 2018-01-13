@@ -22,5 +22,3 @@
     </tbody>
   </table>
 </div>
-
-<script src="https://unpkg.com/vue"></script>
