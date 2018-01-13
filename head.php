@@ -20,6 +20,7 @@ require_once("auth_check.php");
     <script src="https://unpkg.com/flickity@2.0.10/dist/flickity.pkgd.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="https://unpkg.com/flickity@2.0.10/dist/flickity.css">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.min.js" type="text/javascript"></script>
 
     <style>body * { font-family: 'Varela Round', sans-serif;}</style>
 

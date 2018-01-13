@@ -70,4 +70,9 @@ class CustomerController {
 
         return $result;
     }
+
+    public static function getOrders() {
+        $order_obj = UserDB::getOrders(["user_id" => $_SESSION["userid"]]);
+        echo json_encode($order_obj);
+    }
 }

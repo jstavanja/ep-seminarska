@@ -54,4 +54,27 @@ class UserDB extends AbstractDB {
                         . " ORDER BY id ASC");
     }
 
+    public static function getOrders($params) {
+
+        $orders = parent::query('SELECT * FROM `order` WHERE user_id = :user_id', $params);
+        header('Content-type: application/json');
+        $ordersWithItems = [];
+        foreach($orders as $order) {
+            array_push($ordersWithItems, $order["id"]);
+            $items = self::getItemsFromOrder(["order_id" => $order["id"]]);
+            $ordersWithItems[$order["id"]] = $items;
+        }
+        echo(json_encode($ordersWithItems)); exit();
+    }
+
+    public static function getItemsFromOrder($params) {
+        $items = parent::query('SELECT * FROM `ordered_items` WHERE order_id = :order_id', $params);
+        $item_data = [];
+        foreach($items as $item) {
+            $curr_item_data = parent::query('SELECT * FROM `item` WHERE id = :item_id', ["item_id" => $item["item_id"]]);
+            array_push($item_data, $curr_item_data);
+        }
+        return $item_data;
+    }
+
 }

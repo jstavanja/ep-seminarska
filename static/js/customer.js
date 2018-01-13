@@ -21,6 +21,12 @@ window.onload = () => {
     accountPage.style.display = 'none'
 
     ordersPage.style.display = 'block'
+    axios.post('/index.php/customer/getOrders')
+      .then((res) => {
+        console.log(res)
+      });
   })
+
+
 
 }
