@@ -62,7 +62,8 @@ class UserDB extends AbstractDB {
         foreach($orders as $order) {
             array_push($ordersWithItems, $order["id"]);
             $items = self::getItemsFromOrder(["order_id" => $order["id"]]);
-            $ordersWithItems[$order["id"]] = $items;
+            $data_obj = ["order_id" => $order["id"], "items" => $items, "status" => $order["status_id"]];
+            $ordersWithItems[$order["id"]] = $data_obj;
         }
         echo(json_encode($ordersWithItems)); exit();
     }

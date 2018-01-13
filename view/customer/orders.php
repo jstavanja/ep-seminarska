@@ -1,4 +1,4 @@
-<div class="page-orders">
+<div class="page-orders" id="#app">
   <h3 class="title is-inline">Uredi naročila</h3>
   <div class="control is-inline">
     <div class="select">
@@ -12,17 +12,15 @@
     <thead>
       <tr>
         <th>ID</th>
-        <th>Naročnik</th>
         <th>Status</th>
         <th>Število artiklov</th>
         <th>Cena</th>
         <th>Akcije</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="tbody-orders">
       <tr>
         <th>24</th>
-        <th>DamjanMurko</th>
         <th><i class="fa fa-times has-text-danger"></i></th>
         <th>7</th>
         <th>80.21€</th>
@@ -32,7 +30,6 @@
       </tr>
       <tr>
         <th>52</th>
-        <th>BorutPahor</th>
         <th><i class="fa fa-times has-text-danger"></i></th>
         <th>20</th>
         <th>103.99€</th>
@@ -43,3 +40,5 @@
     </tbody>
   </table>
 </div>
+
+<script src="https://unpkg.com/vue"></script>
