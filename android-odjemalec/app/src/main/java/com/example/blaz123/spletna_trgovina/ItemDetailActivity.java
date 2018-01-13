@@ -26,7 +26,7 @@ public class ItemDetailActivity extends BaseActivity {
             itemTag.setText("Oznaka: "+item.getTag());
 
             TextView itemPrice = (TextView) findViewById(R.id.priceDetail);
-            itemPrice.setText("Cena:"+item.getPrice()+"€");
+            itemPrice.setText("Cena: "+item.getPrice()+"€");
 
             TextView itemDescription = (TextView) findViewById(R.id.description);
             itemDescription.setText("Opis: "+item.getDescription());
