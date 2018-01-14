@@ -9,6 +9,17 @@ class SellerController {
     
     public static function index() {
 
+        $authorized_users = ["seller", "master"];
+        $client_cert = filter_input(INPUT_SERVER, "SSL_CLIENT_S_DN_CN");
+
+        if ($client_cert == null) {
+            throw new InvalidArgumentException("Not authorized with SSL certificate");
+        }
+
+        if (!(in_array($client_cert, $authorized_users))) {
+            throw new InvalidArgumentException("You are not authorized to see this content.");
+        }
+
         if (isset($_SESSION['userid'])) {
             if (SellerDB::isSeller(["id" => $_SESSION['userid']])) {
                 $rules = [
@@ -38,6 +49,17 @@ class SellerController {
 
     public static function editItemIndex($id) {
 
+        $authorized_users = ["seller", "master"];
+        $client_cert = filter_input(INPUT_SERVER, "SSL_CLIENT_S_DN_CN");
+
+        if ($client_cert == null) {
+            throw new InvalidArgumentException("Not authorized with SSL certificate");
+        }
+
+        if (!(in_array($client_cert, $authorized_users))) {
+            throw new InvalidArgumentException("You are not authorized to see this content.");
+        }
+
         if (isset($_SESSION['userid'])) {
             if (SellerDB::isSeller(["id" => $_SESSION['userid']])) {
                 echo ViewHelper::render("view/seller/edit-item.php", [
@@ -56,6 +78,17 @@ class SellerController {
 
     public static function editCustomerIndex($id) {
 
+        $authorized_users = ["seller", "master"];
+        $client_cert = filter_input(INPUT_SERVER, "SSL_CLIENT_S_DN_CN");
+
+        if ($client_cert == null) {
+            throw new InvalidArgumentException("Not authorized with SSL certificate");
+        }
+
+        if (!(in_array($client_cert, $authorized_users))) {
+            throw new InvalidArgumentException("You are not authorized to see this content.");
+        }
+
         if (isset($_SESSION['userid'])) {
             if (SellerDB::isSeller(["id" => $_SESSION['userid']])) {
                 echo ViewHelper::render("view/seller/edit-customer.php", [
@@ -73,6 +106,18 @@ class SellerController {
     }
 
     public static function editOrderIndex($id) {
+
+        $authorized_users = ["seller", "master"];
+        $client_cert = filter_input(INPUT_SERVER, "SSL_CLIENT_S_DN_CN");
+
+        if ($client_cert == null) {
+            throw new InvalidArgumentException("Not authorized with SSL certificate");
+        }
+
+        if (!(in_array($client_cert, $authorized_users))) {
+            throw new InvalidArgumentException("You are not authorized to see this content.");
+        }
+        
         if (isset($_SESSION['userid'])) {
             if (SellerDB::isSeller(["id" => $_SESSION['userid']])) {
                 $order = OrderDB::get(["order_id" => $id]);

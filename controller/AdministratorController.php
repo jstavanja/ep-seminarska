@@ -8,6 +8,17 @@ require_once("ViewHelper.php");
 class AdministratorController {
     
     public static function index() {
+
+        $authorized_users = ["administrator", "master"];
+        $client_cert = filter_input(INPUT_SERVER, "SSL_CLIENT_S_DN_CN");
+
+        if ($client_cert == null) {
+            throw new InvalidArgumentException("Not authorized with SSL certificate");
+        }
+
+        if (!(in_array($client_cert, $authorized_users))) {
+            throw new InvalidArgumentException("You are not authorized to see this content.");
+        }
         
         if (isset($_SESSION['userid'])) {
             if (AdministratorDB::isAdmin(["id" => $_SESSION['userid']])) {
@@ -34,6 +45,17 @@ class AdministratorController {
     }
 
     public static function editSellerIndex($id) {
+
+        $authorized_users = ["administrator", "master"];
+        $client_cert = filter_input(INPUT_SERVER, "SSL_CLIENT_S_DN_CN");
+
+        if ($client_cert == null) {
+            throw new InvalidArgumentException("Not authorized with SSL certificate");
+        }
+
+        if (!(in_array($client_cert, $authorized_users))) {
+            throw new InvalidArgumentException("You are not authorized to see this content.");
+        }
 
         if (isset($_SESSION['userid'])) {
             if (AdministratorDB::isAdmin(["id" => $_SESSION['userid']])) {
