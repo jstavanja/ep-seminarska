@@ -43,7 +43,7 @@
               </p>
             </div>
             <div class="ustvari-nov-racun has-text-centered">
-              <a href="/index.php/registration" class="is-size-7">Ustvari nov račun.</a>
+              <a href="<?php echo BASE_URL;?>registration" class="is-size-7">Ustvari nov račun.</a>
             </div>
           </div>
           <?php if ($displayError) : ?>
