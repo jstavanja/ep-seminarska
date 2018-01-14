@@ -44,6 +44,9 @@ class CustomerController {
             "name" => [
                 'filter' => FILTER_SANITIZE_STRING
             ],
+            "surname" => [
+                'filter' => FILTER_SANITIZE_STRING
+            ],
             "password" => [
 
             ],
@@ -56,11 +59,26 @@ class CustomerController {
             "postcode" => [
                 'filter' => FILTER_SANITIZE_STRING
             ],
+            "phone" => [
+                'filter' => FILTER_SANITIZE_STRING
+            ]
         ];
         $data = filter_input_array(INPUT_POST, $rules);
-        $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
+        $existingUser = UserDB::getById(["id" => $userId]);
+        if (!self::checkValues($data)){
+            $data['password'] = $existingUser['password'];
+        }else {
+            $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
+        }
         $data["id"] = $userId;
         UserDB::update($data);
+        $_SESSION["username"] = $data['username'];
+        $_SESSION["user"] = $data['email'];
+        $_SESSION["name"] = $data['name'];
+        $_SESSION["address"] = $data['address'];
+        $_SESSION["postcode"] = $data['postcode'];
+        $_SESSION["surname"] = $data['surname'];
+        $_SESSION["phone"] = $data['phone'];
         echo ViewHelper::redirect(BASE_URL . "customer");
     }
 

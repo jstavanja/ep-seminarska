@@ -38,14 +38,23 @@
       </p>
     </div>
   <div class="field">
-    <span>Pravo ime:</span>
+    <span>Ime:</span>
     <p class="control has-icons-left">
-      <input class="input" name="name" value="<?php echo $_SESSION["name"] ?>" type="text" placeholder="Pravo ime">
+      <input class="input" name="name" value="<?php echo $_SESSION["name"] ?>" type="text" placeholder="Ime">
       <span class="icon is-small is-left">
         <i class="fa fa-user"></i>
       </span>
     </p>
   </div>
+        <div class="field">
+            <span>Priimek:</span>
+            <p class="control has-icons-left">
+                <input name="surname" class="input" type="text" value="<?php echo $_SESSION["surname"];?>" placeholder="Priimek">
+                <span class="icon is-small is-left">
+          <i class="fa fa-user"></i>
+        </span>
+            </p>
+        </div>
   <div class="field">
     <span>Ulica in hišna številka:</span>
     <p class="control has-icons-left">
@@ -64,6 +73,15 @@
       </span>
     </p>
   </div>
+        <div class="field">
+            <span>Telefonska številka:</span>
+            <p class="control has-icons-left">
+                <input name="phone" class="input" value="<?php echo $_SESSION["phone"];?>" type="text" placeholder="Telefonska številka">
+                <span class="icon is-small is-left">
+          <i class="fa fa-phone"></i>
+        </span>
+            </p>
+        </div>
   <div class="field">
     <p class="control has-text-centered	">
       <button class="button is-success">

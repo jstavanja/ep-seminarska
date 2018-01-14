@@ -25,7 +25,7 @@ class UserDB extends AbstractDB {
     }
 
     public static function get(array $email) {
-        $users = parent::query("SELECT id, username, email, password, name, address, postcode, role, status"
+        $users = parent::query("SELECT *"
                         . " FROM user"
                         . " WHERE email = :email", $email);
         
@@ -35,7 +35,6 @@ class UserDB extends AbstractDB {
             throw new InvalidArgumentException("No such user");
         }
     }
-
     public static function getById(array $email) {
         $users = parent::query("SELECT *"
                         . " FROM user"

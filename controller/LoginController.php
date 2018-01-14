@@ -52,6 +52,8 @@ class LoginController {
             $_SESSION["name"] = $user_data['name'];
             $_SESSION["address"] = $user_data['address'];
             $_SESSION["postcode"] = $user_data['postcode'];
+            $_SESSION["surname"] = $user_data['surname'];
+            $_SESSION["phone"] = $user_data['phone'];
             echo ViewHelper::redirect(BASE_URL . "store?logged_in=true");
         } else {
             echo ViewHelper::redirect(BASE_URL . "login?error=true");
