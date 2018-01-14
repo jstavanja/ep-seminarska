@@ -112,7 +112,9 @@ pdfkeywords={spletna prodajalna, PHP, SSL, MySQL}, a4paper, pagebackref=true, un
 % ##################
 \chapter{Uvod}
 
-V uvodu podajte kratko predstavitev teme seminarske naloge ter navedite seznam uporabljene tehnologije.
+Pri predmetu Elektronsko poslovanje smo imeli nalogo narediti varno enostavno spletno trgovino s poudarkom na temah, ki smo jih spoznavali skozi semester na vajah tega predmeta. Odločila sva se narediti preprosto trgovino z oblačili. Za izdelavo sva uporabila naslednje tehnologije: PHP, MySQL, Apache, CSS (knjižnica Bulma), Javascript (knjižnice Axios, Flickity) ter Javo in Android Studio za Android odjemalca. Za učinkovito in vzporedno delo sva uporabljala tehnologijo Git.
+
+Podatkovni model sva izdelala z MySQL Workbench-om. 
 
 % -----------------------------------------------------------------------------
 % ###################
@@ -122,16 +124,36 @@ V uvodu podajte kratko predstavitev teme seminarske naloge ter navedite seznam u
 % -----------------------------------------------
 \chapter{Navedba realiziranih storitev}
 
-Navedite, katere razširjene storitve ste implementirali. Če ste katero storitev implementirali le deloma, opišite, kako daleč ste z implementacijo prišli. 
+Implementirala sva naslednje razširjene storitve:
 
-Prav tako navedite, če katero od obveznih storitev niste implementirali v celoti.
+\begin{itemize}
+    \item Registracija strank z uporabo filtriranja CAPTCHA.
+    \item Smiselna organizacija in izvedba uporabniškega vmesnika s pomočjo tehnologij kot so CSS in JavaScript ter uporaba AJAX.
+\end{itemize}
 
 
 % -----------------------------------------------
 \chapter{Podatkovni model}
 
-Podajte sliko logičnega podatkovnega modela (denimo iz programa MySQL Workbench) ter navedite in kratko opišite uporabljene tabele. Če katera vsebuje netrivialne atribute, jih pojasnite.
-
+Slika logičnega podatkovnega modela (generirana z MySQL Workbench programom).
+\newline
+\includegraphics[scale=0.9]{images/database_model_diagram.png}
+\newpage
+Najin podatkovni model je sestavljen iz sledečih tabel:
+\begin{itemize}
+    \item User
+    \item Administrator
+    \item Seller
+    \item Customer
+    \item Order
+    \item Rating (Na koncu te tabele nisva uporabila)
+    \item Image (Na koncu te tabele nisva uporabila)
+    \item Size (Na koncu te tabele nisva uporabila)
+    \item Available size (Na koncu te tabele nisva uporabila)
+    \item Item
+    \item Ordered items
+    \item Status
+\end{itemize}
 % -----------------------------------------------
 \chapter{Varnost sistema}
 
@@ -142,8 +164,7 @@ Opišite implementirane mehanizme za nadzor dostopa ter ostale kontrole, ki ste 
 
 Spodaj podpisani \textit{\prviavtor}, vpisna številka \textit{\prviindeks}, sem (so)avtor seminarske naloge z naslovom \textit{\naslov}. S svojim podpisom zagotavljam, da sem izdelal ali bil soudeležen pri izdelavi naslednjih sklopov seminarske naloge:
 \begin{itemize}
-    \item Vzorčni sklop 1
-	 \item Vzorčni sklop 2
+    \item Spletna aplikacija
 \end{itemize}
 
 Podpis: {\prviavtor}, l.r.
@@ -153,6 +174,7 @@ Podpis: {\prviavtor}, l.r.
 Spodaj podpisana \textit{\drugiavtor}, vpisna številka \textit{\drugiindeks}, sem (so)avtor seminarske naloge z naslovom \textit{\naslov}. S svojim podpisom zagotavljam, da sem izdelal ali bil soudeležen pri izdelavi naslednjih sklopov seminarske naloge:
 \begin{itemize}
     \item Izdelava Android odjemalca
+    \item Pomoč pri spletni aplikaciji
 \end{itemize}
 
 Podpis: {\drugiavtor}, l.r.
@@ -163,38 +185,7 @@ Podpis: {\drugiavtor}, l.r.
 % #######################
 \chapter{Zaključek}
 
-Zaključek.
+Izdelava spletne trgovine se je izkazalo za izzivalno vendar zanimivo delo. Podrobneje sva se spoznala z uporabljenimi tehnologijami ter njihovim delovanjem. Želela sva narediti več razširjenih storitev vendar nama je zmanjkalo časa (zato so tudi nekate tabele na koncu ostale neuporabljene). Kot eno najboljših nadgradenj predvsem vidiva serviranje slik za vsak izdelek, tako na spletni aplikaciji kot na Android odjemalcu, saj pri trenutni trgovini to predstavlja kot eno glavnih pomanjkljivosti.
 
-% -----------------------------------------------------------------------------
-% ##############
-% # LITERATURA #
-% ##############
-\begin{thebibliography}{99}
-\addtocounter{chapter}{1}
-\addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}Literatura}
-\addtocontents{toc}{\protect\vspace{15pt}}
-
-\bibitem{bib:ref} Yank K. \emph{Build Your Own Database-Driven Website Using PHP \& MySQL}. SitePoint, 2003. ISBN-10: 0-957-92181-0.
-
-\bibitem{bib:ref1} Michele D.; Jon P. \emph{Learning PHP and MySQL}. O'Rielly, 2006. ISBN-10: 0-596-10110-4.
-
-\bibitem{bib:ref2} Tim C.; Joyce P.; Clark M. \emph{PHP5 and MySQL Bible}. Wiley Publishing, Inc., 2004. ISBN-10: 0-7645-5746-7
-
-\bibitem{bib:LinuxCommandReference} Red Hat Software inc. \emph{Linux Complete Command Reference}. Sams Publishing, 1997. ISBN-10: 0-672-31104-6.
-
-\bibitem{bib:IPsecHowTo1} Ralf Spennberg. \emph{IPsec HOWTO} (online). 2003. (citirano \today). Dostopno na naslovu:
-\url{http://www.ipsec-howto.org/t1.html}
-
-\end{thebibliography}
-
-% -----------------------------------------------------------------------------
-% ###########
-% # DODATEK #
-% ###########
-
- \appendix
-
-\chapter{Naslov dodatka}
-{\it Po potrebi.}
 
 \end{document}
