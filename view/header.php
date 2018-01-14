@@ -26,7 +26,7 @@
                 Košarica
               </a>
               <?php if (isset($_SESSION["user"])) :?>
-              <a class="navbar-item" href="<?php echo BASE_URL . "logout.php"?>">
+              <a class="navbar-item" href="<?php echo BASE_URL . "logout"?>">
                 Odjava
               </a>
               <?php else: ?>
