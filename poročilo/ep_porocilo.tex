@@ -114,7 +114,7 @@ pdfkeywords={spletna prodajalna, PHP, SSL, MySQL}, a4paper, pagebackref=true, un
 
 Pri predmetu Elektronsko poslovanje smo imeli nalogo narediti varno enostavno spletno trgovino s poudarkom na temah, ki smo jih spoznavali skozi semester na vajah tega predmeta. Odločila sva se narediti preprosto trgovino z oblačili. Za izdelavo sva uporabila naslednje tehnologije: PHP, MySQL, Apache, CSS (knjižnica Bulma), Javascript (knjižnice Axios, Flickity) ter Javo in Android Studio za Android odjemalca. Za učinkovito in vzporedno delo sva uporabljala tehnologijo Git.
 
-Podatkovni model sva izdelala z MySQL Workbench-om. 
+Podatkovni model sva izdelala z MySQL Workbench-om in ga po potrebi sproti posodabljala. 
 
 % -----------------------------------------------------------------------------
 % ###################
@@ -157,7 +157,13 @@ Najin podatkovni model je sestavljen iz sledečih tabel:
 % -----------------------------------------------
 \chapter{Varnost sistema}
 
-Opišite implementirane mehanizme za nadzor dostopa ter ostale kontrole, ki ste jih implementirali. Pri vsake navedite, kaj je njen namen oz. katere varnostne grožnje preprečuje.
+Za nadzor dostopa do občutljivih delov aplikacije, kot sta nadzorni plošči za administratorje in prodajalce sva uporabila X.509 SSL certifikate. Vsak administrator in prodajalec, ki želi dostopati do teh vmesnikov, mora imeti v brskalniku nameščen certifikat, podpisan s strani naše certifikatne agencije, ta pa mora vsebovati posebno polje, v katerem je naveden tip uporabnika. Za skrbnike sistema in potrebe razvijanja sva dodala še tip uporabnika master, kateri ima omogočen dostop do vseh komponent.
+
+Za brskanje po strani sva anonimnim uporabnikom dovolila tudi dostop do aplikacije po nezavarovanem kanalu otokolu (po protokolu HTTP). Takoj, ko se pa uporabnik želi prijaviti ali registrirati, aplikacija samodejno poskrbi za preklop na protokol HTTPS, preko katerega prijavljeni uporabniki vedno dostopajo do vseh podstrani na spletni strani. Strežniški SSL certifikat sva prav tako generirala s pomočjo lastne certifikatne agencije in programa openssl.
+
+Vsa vnosna polja in parametre pri zahtevkih sva vedno prefiltrirala s pomočjo funkcije, vgrajene v PHP: filter\_input\_array, tako, da sva se izognila morebitnim SQL injection in XSS napadom.
+
+Gesla uporabnikov so v bazi shranjena kot izhodi zgoščevalne funkcije (hash-i), ki jo uporablja v PHP vgrajena funkcija password\_hash. Ob vpisu v aplikacijo, pa se pravilnost hash-a preveri s pomočjo funkcije password\_verify.
 
 % -----------------------------------------------
 \chapter{Izjava o avtorstvu seminarske naloge}
