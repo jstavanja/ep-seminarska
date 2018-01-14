@@ -33,14 +33,14 @@
           Ostalo
         </p>
         <ul class="menu-list">
-          <li><a href="/">Nazaj na domačo stran</a></li>
+          <li><a href="<?php echo BASE_URL;?>">Nazaj na domačo stran</a></li>
         </ul>
       </aside>
     </div>
     <div class="container is-fluid box column is-three-quarters animated fadeInRight">
 
       <div class="page-default">
-        <h3 class="title">Pozdravljen(a), stranka_branka!</h3>
+        <h3 class="title">Pozdravljen(a), stranka!</h3>
         
         <article class="message is-primary">
           <div class="message-header">
@@ -68,4 +68,4 @@
   </div>
 </div>
 
-<script src="static/js/customer.js" type="text/javascript"></script>
+<?php echo '<script src="' . BASE_URL . 'static/js/customer.js" type="text/javascript"></script>' ;?>

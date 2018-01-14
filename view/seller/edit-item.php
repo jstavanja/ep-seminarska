@@ -15,7 +15,7 @@
 </section>
 
 <div class="container">
-<form class="modal-card" action="/seller/editItem/<?php echo $item["id"];?>" method="POST">
+<form class="modal-card" action="<?php echo BASE_URL . "seller/editItem/" . $item["id"];?>" method="POST">
     <header class="modal-card-head">
       <p class="modal-card-title">Uredi artikel</p>
       <button class="delete item-close button-modal-close" aria-label="close"></button>
@@ -65,4 +65,4 @@
   </form>
 </div>
 
-<script src="/static/js/seller-edit-item.js" type="text/javascript"></script>
+<?php echo '<script src="' . BASE_URL . 'static/js/seller-edit-item.js" type="text/javascript"></script>' ;?>

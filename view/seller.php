@@ -34,7 +34,7 @@
           Ostalo
         </p>
         <ul class="menu-list">
-          <li><a href="/">Nazaj na domačo stran</a></li>
+          <li><a href="<?php echo BASE_URL;?>">Nazaj na domačo stran</a></li>
         </ul>
       </aside>
     </div>
@@ -54,4 +54,4 @@
 <?php require_once("view/seller/modal-new-customer.php"); ?>
 <?php require_once("view/seller/modal-new-item.php"); ?>
 
-<script src="/static/js/seller.js" type="text/javascript"></script>
+<?php echo '<script src="' . BASE_URL . 'static/js/seller.js" type="text/javascript"></script>' ;?>

@@ -43,11 +43,11 @@
     </section>
     <footer class="modal-card-foot">
       <button class="button is-info customer-close button-modal-close">Nazaj</button>
-      <form action="/customer/order/cancel/<?php echo $order["id"];?>" method="post">
+      <form action="<?php echo BASE_URL . "customer/order/cancel/" . $order["id"];?>" method="post">
         <button type="submit" class="button is-danger"><i class="fa fa-minus-square"></i>Prekliči naročilo</button>
       </form>
     </footer>
   </div>
 </div>
 
-<script src="/static/js/custom-edit-order.js" type="text/javascript"></script>
+<?php echo '<script src="' . BASE_URL . 'static/js/custom-edit-order.js" type="text/javascript"></script>' ;?>

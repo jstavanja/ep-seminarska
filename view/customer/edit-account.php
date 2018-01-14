@@ -1,6 +1,6 @@
 <div class="page-account">
   <h3 class="title">Uredi svoje podatke</h3>
-    <form action="/customer/editOwnData" method="post">
+    <form action="<?php echo BASE_URL . "customer/editOwnData"?>" method="post">
   <div class="field">
     <span>Uporabniško ime:</span>
     <p class="control has-icons-left">

@@ -1,4 +1,4 @@
-<script src="static/js/store.js" type="text/javascript"></script>
+<?php echo '<script src="' . BASE_URL . 'static/js/store.js" type="text/javascript"></script>' ;?>
 
 <?php
 if (!isset($_COOKIE['first_time'])) {

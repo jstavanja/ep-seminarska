@@ -34,7 +34,7 @@
               <th><?php echo $item["tag"]; ?></th>
               <th><?php echo $item["price"]; ?>€</th>
               <th>
-                <form class="is-inline" action="/cart/updateCart" method="post">
+                <form class="is-inline" action="<?php echo BASE_URL . "cart/updateCart"?>" method="post">
                   <input type="hidden" name="do" value="update_cart">
                   <input type="hidden" name="id" value="<?php echo $item["id"]; ?>">
                   <input class="is-inline" type="number" value="<?php echo $item["amount"]; ?>" name="amount">
@@ -42,7 +42,7 @@
                 </form>
               </th>
               <td>
-                <form style="display: none;" action="/cart/updateCart" id="delete-item-form" method="post">
+                <form style="display: none;" action="<?php echo BASE_URL . "cart/updateCart"?>" id="delete-item-form" method="post">
                   <input type="hidden" name="do" value="update_cart">
                   <input type="hidden" name="id" value="<?php echo $item["id"]; ?>">
                   <input type="number" value="0" name="amount">
@@ -77,8 +77,8 @@
   </div>
 </div>
 
-<form action="/cart/emptyCart" id="empty-cart-form" method="post">
+<form action="<?php echo BASE_URL . "cart/emptyCart"?>" id="empty-cart-form" method="post">
   <input type="hidden" name="do" value="purge_cart">
 </form>
 
-<script src="/static/js/cart.js" type="text/javascript"></script>
+<?php echo '<script src="' . BASE_URL . 'static/js/cart.js" type="text/javascript"></script>' ;?>

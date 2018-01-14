@@ -1,7 +1,7 @@
 <div class="navbars animated fadeIn" style="z-index: 1000;">
       <nav class="navbar main-navigation">
         <div class="navbar-brand">
-          <a class="navbar-item" href="/">
+          <a class="navbar-item" href="<?php echo BASE_URL;?>">
             <img src="<?php echo IMAGES_URL . "logo.png"?>" width="112" height="28">
           </a>
           <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
@@ -22,18 +22,18 @@
           </div>
           <div class="navbar-end">
             <div class="navbar-item">
-              <a class="navbar-item" href="/cart">
+              <a class="navbar-item" href="<?php echo BASE_URL . "cart"?>">
                 Košarica
               </a>
               <?php if (isset($_SESSION["user"])) :?>
-              <a class="navbar-item" href="/logout.php">
+              <a class="navbar-item" href="<?php echo BASE_URL . "logout"?>">
                 Odjava
               </a>
               <?php else: ?>
-              <a class="navbar-item" href="/login">
+              <a class="navbar-item" href="<?php echo BASE_URL . "login"?>">
                 Prijava
               </a>
-              <a class="navbar-item" href="/registration">
+              <a class="navbar-item" href="<?php echo BASE_URL . "registration"?>">
                 Registracija
               </a>
               <?php endif ?>
@@ -48,17 +48,17 @@
                 </a>
                 <?php if (isset($_SESSION["user"])) :?>
                 <div class="navbar-dropdown is-boxed">
-                  <a class="navbar-item" href="/customer">
+                  <a class="navbar-item" href="<?php echo BASE_URL . "customer"?>">
                     Nadzorna plošča
                   </a>
                   <hr class="navbar-divider">
                   <?php if (AdministratorDB::isAdmin(["id" => $_SESSION['userid']])): ?>
-                  <a class="navbar-item" href="/administrator">
+                  <a class="navbar-item" href="<?php echo BASE_URL . "administrator"?>">
                     Administrator
                   </a>
                   <?php endif ?>
                   <?php if (SellerDB::isSeller(["id" => $_SESSION['userid']])): ?>
-                  <a class="navbar-item" href="/seller">
+                  <a class="navbar-item" href="<?php echo BASE_URL . "seller"?>">
                     Prodajalec
                   </a>
                   <?php endif ?>

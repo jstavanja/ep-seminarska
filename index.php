@@ -27,6 +27,9 @@ $urls = [
     "/^login$/" => function ($method) {
         LoginController::index();
     },
+    "/^logout$/" => function ($method) {
+        echo ViewHelper::render("view/logout.php");
+    },
     "/^registration$/" => function ($method) {
         RegistrationController::index();
     },

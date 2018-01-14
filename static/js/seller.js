@@ -106,7 +106,7 @@ window.onload = () => {
             <td>${stArtiklov}</td>
             <td>${cena}$</td>
             <td>
-              <a href="/seller/order/${orderId}" class="button is-primary is-small"><i class="fa fa-pencil-square"></i>Obdelaj</a>
+              <a href="${base_url}seller/order/${orderId}" class="button is-primary is-small"><i class="fa fa-pencil-square"></i>Obdelaj</a>
             </td>
           </tr>`
 

@@ -13,7 +13,7 @@
   <section class="section animated fadeIn">
     <div class="container">
       <div class="columns box">
-        <form action="/registration/registerUser" method="post" class="column is-two-thirds">
+        <form action="<?php echo BASE_URL . "registration/registerUser"?>" method="post" class="column is-two-thirds">
           <?php if ($missing_parameters) : ?>
           <div class="column notification is-danger has-text-centered animated flipInX notification-login-error">
               Prosimo, pravilno izpolnite vsa polja.
@@ -99,6 +99,11 @@
                 <i class="fa fa-phone"></i>
               </span>
             </p>
+          </div>
+          <div class="field">
+            <div class="control has-text-centered">
+              <div class="g-recaptcha" data-sitekey="6LeknUAUAAAAAEdmQLSzK1pu8X0seAmRJCDz757T"></div>
+            </div>
           </div>
           <div class="field">
             <p class="control has-text-centered	">
