@@ -4,7 +4,13 @@ class ViewHelper {
 
     //Displays a given view and sets the $variables array into scope.
     public static function render($file, $variables = array()) {
-        extract($variables);
+        
+	if((empty($_SERVER["HTTPS"]) || $_SERVER["HTTPS"] !== "on") && isset($_SESSION["userid"])){
+            header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
+            exit();
+        }
+
+	extract($variables);
         //var_dump($variables);
         ob_start();
         include('head.php');

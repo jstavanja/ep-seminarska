@@ -19,19 +19,27 @@ $path = isset($_SERVER["PATH_INFO"]) ? trim($_SERVER["PATH_INFO"], "/") : "";
 // ROUTER: defines mapping between URLS and controllers
 $urls = [
     "/^store$/" => function ($method) {
-        StoreController::index();
+	StoreController::index();
     },
     "/^store\/(.*?)$/" => function ($method, $tag) {
         StoreController::indexByTag($tag);
     },
     "/^login$/" => function ($method) {
+        if(empty($_SERVER["HTTPS"]) || $_SERVER["HTTPS"] !== "on") {
+            header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
+            exit();
+        }
         LoginController::index();
     },
     "/^logout$/" => function ($method) {
         echo ViewHelper::render("view/logout.php");
     },
     "/^registration$/" => function ($method) {
-        RegistrationController::index();
+        if((empty($_SERVER["HTTPS"]) || $_SERVER["HTTPS"] !== "on")){
+            header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
+            exit();
+        }
+	RegistrationController::index();
     },
     "/^registration\/registerUser$/" => function ($method) {
         if ($method == "POST") {
