@@ -19,6 +19,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.min.js" type="text/javascript"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
 
+    <script>
+    //axios.defaults.baseURL = 'http://localhost/netbeans/ep-seminarska';
+    </script>
+
     <style>body * { font-family: 'Varela Round', sans-serif;}</style>
 
     <link rel="icon" href=<?php echo IMAGES_URL . "favicon.ico"?> type="image/x-icon">
