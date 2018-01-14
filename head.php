@@ -20,7 +20,8 @@
     <script src='https://www.google.com/recaptcha/api.js'></script>
 
     <script>
-        axios.defaults.baseURL = '<?php echo BASE_URL;?>';
+        window.base_url = '<?php echo BASE_URL;?>';
+        axios.defaults.baseURL = window.base_url;
     </script>
 
     <style>body * { font-family: 'Varela Round', sans-serif;}</style>
