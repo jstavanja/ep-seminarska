@@ -11,7 +11,7 @@
     </div>
   </section>
   <section class="section">
-    <form class="container" action="/index.php/login/logUserIn" method="POST">
+    <form class="container" action="<?php echo BASE_URL . "login/logUserIn"?>" method="POST">
       <div class="columns animated fadeIn">
         <div class="column is-one-third"></div>
         <div class="column is-one-third">

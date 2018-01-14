@@ -1,7 +1,7 @@
 
 <div class="modal modal-new-customer">
   <div class="modal-background"></div>
-  <form class="modal-card" action="/index.php/seller/addCustomer" method="POST">
+  <form class="modal-card" action="<?php echo BASE_URL . "seller/addCustomer"?>" method="POST">
     <header class="modal-card-head">
       <p class="modal-card-title">Dodaj stranko</p>
       <button class="delete button-modal-close" aria-label="close"></button>

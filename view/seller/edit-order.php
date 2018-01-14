@@ -48,10 +48,10 @@
     </section>
     <footer class="modal-card-foot">
       <button class="button is-info customer-close button-modal-close">Nazaj</button>
-      <form action="/index.php/seller/order/approve/<?php echo $order["id"];?>" method="post">
+      <form action="<?php echo BASE_URL . "seller/order/approve/" . $order["id"];?>" method="post">
         <button type="submit" class="button is-success"><i class="fa fa-minus-square"></i>Odobri naročilo</button>
       </form>
-      <form action="/index.php/seller/order/cancel/<?php echo $order["id"];?>" method="post">
+      <form action="<?php echo BASE_URL . "seller/order/cancel/" . $order["id"];?>" method="post">
         <button type="submit" class="button is-danger"><i class="fa fa-minus-square"></i>Prekliči naročilo</button>
       </form>
     </footer>

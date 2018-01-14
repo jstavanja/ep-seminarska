@@ -21,8 +21,8 @@
         <th><?php echo $item["description"]; ?></th>
         <th><?php echo $item["price"];?>€</th>
         <td>
-          <a class="button is-primary is-small" href="/index.php/seller/editItem/<?php echo $item["id"];?>"><i class="fa fa-pencil-square"></i>Uredi</a>
-          <form action="/index.php/seller/deleteItem/<?php echo $item["id"];?>" method="post">
+          <a class="button is-primary is-small" href="<?php echo BASE_URL .  "seller/editItem/" . $item["id"];?>"><i class="fa fa-pencil-square"></i>Uredi</a>
+          <form action="<?php echo BASE_URL . "seller/deleteItem/" . $item["id"];?>" method="post">
             <button type="submit" class="button is-danger is-small"><i class="fa fa-minus-square"></i>Izbriši</button>
           </form>
         </td>

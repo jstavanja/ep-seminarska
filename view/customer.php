@@ -40,7 +40,7 @@
     <div class="container is-fluid box column is-three-quarters animated fadeInRight">
 
       <div class="page-default">
-        <h3 class="title">Pozdravljen(a), stranka_branka!</h3>
+        <h3 class="title">Pozdravljen(a), stranka!</h3>
         
         <article class="message is-primary">
           <div class="message-header">

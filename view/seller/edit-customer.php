@@ -15,7 +15,7 @@
 </section>
 
 <div class="container">
-<form class="modal-card" action="/index.php/seller/editCustomer/<?php echo $customer["id"];?>" method="POST">
+<form class="modal-card" action="<?php echo BASE_URL . "seller/editCustomer/" . $customer["id"];?>" method="POST">
   <input type="hidden" name="id" value="<?php echo $customer["id"];?>">
   <header class="modal-card-head">
     <p class="modal-card-title">Uredi stranko</p>
