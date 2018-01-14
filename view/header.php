@@ -1,7 +1,7 @@
 <div class="navbars animated fadeIn" style="z-index: 1000;">
       <nav class="navbar main-navigation">
         <div class="navbar-brand">
-          <a class="navbar-item" href="/">
+          <a class="navbar-item" href="<?php echo BASE_URL;?>">
             <img src="<?php echo IMAGES_URL . "logo.png"?>" width="112" height="28">
           </a>
           <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">

@@ -20,7 +20,7 @@
     <script src='https://www.google.com/recaptcha/api.js'></script>
 
     <script>
-    //axios.defaults.baseURL = 'http://localhost/netbeans/ep-seminarska';
+        axios.defaults.baseURL = '<?php echo BASE_URL;?>';
     </script>
 
     <style>body * { font-family: 'Varela Round', sans-serif;}</style>

@@ -33,7 +33,7 @@
           Ostalo
         </p>
         <ul class="menu-list">
-          <li><a href="/">Nazaj na domačo stran</a></li>
+          <li><a href="<?php echo BASE_URL;?>">Nazaj na domačo stran</a></li>
         </ul>
       </aside>
     </div>
@@ -68,4 +68,4 @@
   </div>
 </div>
 
-<script src="static/js/customer.js" type="text/javascript"></script>
+<?php echo '<script src="' . BASE_URL . 'static/js/customer.js" type="text/javascript"></script>' ;?>

@@ -50,4 +50,4 @@
   </div>
 </div>
 
-<script src="/static/js/custom-edit-order.js" type="text/javascript"></script>
+<?php echo '<script src="' . BASE_URL . 'static/js/custom-edit-order.js" type="text/javascript"></script>' ;?>

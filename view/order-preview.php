@@ -58,4 +58,4 @@
   </div>
 </div>
 
-<script src="/static/js/order-preview.js"></script>
+<?php echo '<script src="' . BASE_URL . 'static/js/order-preview.js" type="text/javascript"></script>' ;?>

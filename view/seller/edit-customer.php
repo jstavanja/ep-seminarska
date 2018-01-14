@@ -111,4 +111,4 @@
   </form>
 </div>
 
-<script src="/static/js/seller-edit-customer.js" type="text/javascript"></script>
+<?php echo '<script src="' . BASE_URL . 'static/js/seller-edit-customer.js" type="text/javascript"></script>' ;?>

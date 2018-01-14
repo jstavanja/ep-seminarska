@@ -81,4 +81,4 @@
   <input type="hidden" name="do" value="purge_cart">
 </form>
 
-<script src="/static/js/cart.js" type="text/javascript"></script>
+<?php echo '<script src="' . BASE_URL . 'static/js/cart.js" type="text/javascript"></script>' ;?>
